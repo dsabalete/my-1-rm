@@ -7,6 +7,8 @@ you can get to know it by applying the Brzycki formula (as long as the number of
 than 10).
 The purpose of this application is to help calculate the 1RM of any training session.
 
+[Demo live](https://vuejs-http-97bc1.web.app/).
+
 ## Project setup
 ```
 yarn install
