@@ -1,15 +1,15 @@
 <template>
     <div class="result">
       <h2>1RM: {{ rm1 | twoDecimals }}</h2>
-      <h2>2RM: {{ (rm1 * .95) | twoDecimals }}</h2>
-      <h2>3RM: {{ (rm1 * .93) | twoDecimals }}</h2>
-      <h2>4RM: {{ (rm1 * .9) | twoDecimals }}</h2>
-      <h2>5RM: {{ (rm1 * .87) | twoDecimals }}</h2>
-      <h2>6RM: {{ (rm1 * .85) | twoDecimals }}</h2>
-      <h2>7RM: {{ (rm1 * .83) | twoDecimals }}</h2>
-      <h2>8RM: {{ (rm1 * .8) | twoDecimals }}</h2>
-      <h2>9RM: {{ (rm1 * .77) | twoDecimals }}</h2>
-      <h2>10RM: {{ (rm1 * .75) | twoDecimals }}</h2>
+      <h4>2RM: {{ (rm1 * .95) | twoDecimals }}</h4>
+      <h4>3RM: {{ (rm1 * .93) | twoDecimals }}</h4>
+      <h4>4RM: {{ (rm1 * .9) | twoDecimals }}</h4>
+      <h4>5RM: {{ (rm1 * .87) | twoDecimals }}</h4>
+      <h4>6RM: {{ (rm1 * .85) | twoDecimals }}</h4>
+      <h4>7RM: {{ (rm1 * .83) | twoDecimals }}</h4>
+      <h4>8RM: {{ (rm1 * .8) | twoDecimals }}</h4>
+      <h4>9RM: {{ (rm1 * .77) | twoDecimals }}</h4>
+      <h4>10RM: {{ (rm1 * .75) | twoDecimals }}</h4>
     </div>
 </template>
 

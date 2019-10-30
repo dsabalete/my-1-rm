@@ -19,6 +19,10 @@
           @input="calculate"
           placeholder="Number of reps until fail">
       </div>
+      <div class="form-group col-sm">
+        <label for="">Setting</label>
+        <button class="btn btn-primary" @click.prevent="saveSettings">Save settings</button>
+      </div>
     </form>
   </div>
 </template>
@@ -44,7 +48,17 @@ export default {
         reps: +this.reps
       }
       this.updateValue({ params })
+    },
+    saveSettings () {
+      const settings = JSON.stringify({ weight: this.weight, reps: this.reps })
+      localStorage.setItem('defaultState', settings)
     }
+  },
+  created () {
+    const defaultState = JSON.parse(localStorage.getItem('defaultState')) || { weight: 80, reps: 10 }
+    this.weight = defaultState.weight
+    this.reps = defaultState.reps
+    this.calculate()
   }
 }
 </script>
