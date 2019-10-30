@@ -1,5 +1,5 @@
 <template>
-    <div class="result">
+    <div class="result" v-if="rm1 != 0">
       <h2>1RM: {{ rm1 | twoDecimals }}</h2>
       <h4>2RM: {{ (rm1 * .95) | twoDecimals }}</h4>
       <h4>3RM: {{ (rm1 * .93) | twoDecimals }}</h4>

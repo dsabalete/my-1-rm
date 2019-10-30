@@ -8,7 +8,7 @@
           class="form-control"
           v-model="weight"
           @input="calculate"
-          placeholder="Weight tested">
+          placeholder="Weight">
       </div>
       <div class="form-group col-sm">
         <label for="reps">Reps</label>
@@ -17,13 +17,10 @@
           class="form-control"
           v-model="reps"
           @input="calculate"
-          placeholder="Number of reps until fail">
-      </div>
-      <div class="form-group col-sm">
-        <label for="">Setting</label>
-        <button class="btn btn-primary" @click.prevent="saveSettings">Save settings</button>
+          placeholder="Max reps">
       </div>
     </form>
+    <button class="btn btn-primary" @click.prevent="saveSettings">Save default settings</button>
   </div>
 </template>
 
