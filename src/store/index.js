@@ -1,16 +1,12 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import { createStore } from 'vuex'
 
-Vue.use(Vuex)
-
-export default new Vuex.Store({
+export default createStore({
   state: {
     rm1: 0
   },
-  getters: {
-  },
+  getters: {},
   mutations: {
-    'MUTATE_UPDATE_VALUE' (state, payload) {
+    'MUTATE_UPDATE_VALUE': (state, payload) => {
       const { weight, reps } = payload.params
       state.rm1 = weight / (1.0278 - (0.0278 * reps))
     }
@@ -20,6 +16,5 @@ export default new Vuex.Store({
       commit('MUTATE_UPDATE_VALUE', payload)
     }
   },
-  modules: {
-  }
+  modules: {}
 })

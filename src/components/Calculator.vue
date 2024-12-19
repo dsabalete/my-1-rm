@@ -3,21 +3,11 @@
     <form class="row">
       <div class="form-group col-sm">
         <label for="weight">Weight</label>
-        <input type="number"
-          id="weight"
-          class="form-control"
-          v-model="weight"
-          @input="calculate"
-          placeholder="Weight">
+        <input type="number" id="weight" class="form-control" v-model="weight" @input="calculate" placeholder="Weight">
       </div>
       <div class="form-group col-sm">
         <label for="reps">Reps</label>
-        <input type="number"
-          id="reps"
-          class="form-control"
-          v-model="reps"
-          @input="calculate"
-          placeholder="Max reps">
+        <input type="number" id="reps" class="form-control" v-model="reps" @input="calculate" placeholder="Max reps">
       </div>
     </form>
     <button class="btn btn-primary" @click.prevent="saveSettings">Save default settings</button>
@@ -60,7 +50,4 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-
-</style>
+<style scoped></style>
