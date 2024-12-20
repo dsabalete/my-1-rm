@@ -1,10 +1,8 @@
 <template>
-  <div id="app" class="container">
+  <div id="app">
     <NuxtLayout>
-      <div id="nav">
-        <router-link to="/">1RM</router-link> |
-        <router-link to="/about">About</router-link>
-      </div>
+      <NavigationBar />
+      <p class="container">Calculate your 1 Repetition Maximum (1RM) for any exercise.</p>
       <NuxtPage />
     </NuxtLayout>
   </div>
@@ -17,17 +15,8 @@
   -moz-osx-font-smoothing: grayscale;
   /* text-align: center; */
   color: #2c3e50;
-}
-
-.container {
-  max-width: 1200px;
+  max-width: 800px;
   margin: 0 auto;
-}
-
-#nav {
-  padding: 30px;
-  display: flex;
-  justify-content: center;
 }
 
 #nav a {
