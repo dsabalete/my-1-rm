@@ -1,5 +1,8 @@
 FROM node:20-alpine
 
+# Install bash
+RUN apk add --no-cache bash
+
 # Install bun
 RUN curl -fsSL https://bun.sh/install | bash
 
