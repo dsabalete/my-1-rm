@@ -1,3 +1,10 @@
+<script setup lang="ts">
+import { defineAsyncComponent } from 'vue'
+
+const Calculator = defineAsyncComponent(() => import('../components/Calculator.vue'))
+const ResultsRM = defineAsyncComponent(() => import('../components/ResultsRM.vue'))
+</script>
+
 <template>
   <div class="home-page">
     <Calculator />
