@@ -1,3 +1,13 @@
+<script setup lang="ts">
+import { useMainStore } from '../store'
+
+const store = useMainStore()
+
+function twoDecimals(value: number): string {
+  return value.toFixed(0) + ' Kg'
+}
+</script>
+
 <template>
   <div class="result" v-if="store.rm1 != 0">
     <h2>1RM: {{ twoDecimals(store.rm1) }}</h2>
@@ -12,16 +22,6 @@
     <h4>10RM: {{ twoDecimals(store.rm1 * 0.75) }}</h4>
   </div>
 </template>
-
-<script setup lang="ts">
-import { useMainStore } from '../store'
-
-const store = useMainStore()
-
-function twoDecimals(value: number): string {
-  return value.toFixed(0) + ' Kg'
-}
-</script>
 
 <style scoped>
 .result {
