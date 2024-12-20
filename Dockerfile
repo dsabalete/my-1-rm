@@ -1,7 +1,7 @@
 FROM node:20-alpine
 
-# Install bash
-RUN apk add --no-cache bash
+# Install bash and curl
+RUN apk add --no-cache bash curl
 
 # Install bun
 RUN curl -fsSL https://bun.sh/install | bash
@@ -9,11 +9,15 @@ RUN curl -fsSL https://bun.sh/install | bash
 # Set bun path
 ENV PATH="/root/.bun/bin:$PATH"
 
+# Verify bun installation
+RUN bun --version
+
 # Create working directory
 WORKDIR /app
 
 # Copy package files
 COPY package*.json ./
+
 # Install dependencies using bun
 RUN bun install
 
@@ -30,5 +34,5 @@ ENV PORT=3000
 # Expose the port
 EXPOSE 3000
 
-# Start the application using bun
-CMD ["bun", "run", "preview"]
+# Start the application using node
+CMD ["node", ".output/server/index.mjs"]
