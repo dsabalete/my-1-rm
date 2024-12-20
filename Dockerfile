@@ -1,6 +1,6 @@
 FROM node:20-alpine
 
-LABEL org.opencontainers.image.description "Find your 1RM for any lift using the Brzycki formula"
+LABEL org.opencontainers.image.description="Find your 1RM for any lift using the Brzycki formula"
 
 # Install bash and curl
 RUN apk add --no-cache bash curl

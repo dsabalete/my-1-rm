@@ -1,40 +1,45 @@
 <template>
-  <Navbar expand="lg" background-color="body-tertiary">
-    <Container type="fluid">
-      <NavbarBrand>My1RM Calculator</NavbarBrand>
-      <NavbarToggler />
-      <NavbarCollapse>
-
-        <NavbarNavList margin="e-auto b-2 b-lg-0">
-          <NavItem>
-            <NavLink>
-              <router-link to="/">1RM</router-link>
-            </NavLink>
-          </NavItem>
-
-          <NavItem>
-            <NavLink>
-              <router-link to="/about">About</router-link>
-            </NavLink>
-          </NavItem>
-        </NavbarNavList>
-
-        <!-- <BForm flex role="search">
-          <BFormInput margin="e-2" type="search" placeholder="Search" />
-          <b-button color="outline-success" type="submit">
-            Search
-          </b-button>
-        </BForm> -->
-      </NavbarCollapse>
-    </Container>
-
-
-
-
-    <!--
-    <div id="nav">
-      <router-link to="/">1RM</router-link> |
-
-    </div> -->
-  </Navbar>
+  <nav class="navbar">
+    <router-link to="/" class="navbar-item">My1RM Calculator</router-link>
+    <router-link to="/about" class="navbar-item">About</router-link>
+  </nav>
 </template>
+
+<style lang="postcss" scoped>
+@keyframes pulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.3);
+  }
+}
+
+.navbar {
+  display: flex;
+
+  justify-content: space-around;
+  padding: 1rem 0;
+  background-color: #f8f9fa;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  a {
+    font-weight: bold;
+    color: #2c3e50;
+    text-decoration: none;
+    margin: 0 20px;
+
+    &:hover {
+      animation: pulse 1s infinite;
+    }
+
+    &.router-link-exact-active {
+      color: #007bff;
+      font-size: 20px;
+    }
+  }
+}
+</style>
