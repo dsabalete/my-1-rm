@@ -4,15 +4,16 @@ module.exports = {
     '@semantic-release/commit-analyzer', // Analyzes commits to determine the next version
     '@semantic-release/release-notes-generator', // Generates release notes
     '@semantic-release/changelog', // Updates the CHANGELOG.md
-    [
-      '@semantic-release/github',
-      {
-        assets: [
-          { path: 'CHANGELOG.md', label: 'Changelog' },
-          { path: 'dist/*.js', label: 'Compiled JS files' },
-        ],
-      },
-    ],
+    '@semantic-release/npm', // Updates package.json
+    // [
+    //   '@semantic-release/github',
+    //   {
+    //     assets: [
+    //       { path: 'CHANGELOG.md', label: 'Changelog' },
+    //       { path: 'dist/*.js', label: 'Compiled JS files' },
+    //     ],
+    //   },
+    // ],
     [
       '@semantic-release/git',
       {
