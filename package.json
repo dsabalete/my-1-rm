@@ -10,7 +10,8 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "release": "standard-version"
   },
   "dependencies": {
     "@pinia/nuxt": "^0.9.0",
@@ -21,6 +22,17 @@
     "vue-router": "latest"
   },
   "devDependencies": {
-    "@nuxt/types": "^2.18.1"
+    "@commitlint/cli": "^19.6.1",
+    "@commitlint/config-conventional": "^19.6.0",
+    "@nuxt/types": "^2.18.1",
+    "commitizen": "^4.3.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^9.1.7",
+    "standard-version": "^9.5.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }

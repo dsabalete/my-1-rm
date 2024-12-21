@@ -1,9 +1,14 @@
+<script setup lang="ts">
+import { version } from '../package.json'
+</script>
+
 <template>
   <div id="app">
     <NuxtLayout>
       <NavigationBar />
       <p class="app-hint">Calculate your 1 Repetition Maximum (1RM) for any exercise.</p>
       <NuxtPage />
+      <p class="version-hint">Version: {{ version }}</p>
     </NuxtLayout>
   </div>
 </template>
