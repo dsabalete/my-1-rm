@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/dsabalete/my-1-rm/compare/v1.0.0...v1.0.1) (2024-12-21)
+
+
+### Bug Fixes
+
+* update package version on release ([f178444](https://github.com/dsabalete/my-1-rm/commit/f17844497a94e689d7e3a9bccf4296187ad86090))
+
 # 1.0.0 (2024-12-21)
 
 
