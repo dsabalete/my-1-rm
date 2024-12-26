@@ -10,7 +10,10 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "release": "standard-version"
+    "release": "standard-version",
+    "docker:build": "docker build -t dsabalete/my-1-rm .",
+    "docker:run": "docker run -p 3000:3000 dsabalete/my-1-rm",
+    "docker:push": "docker push dsabalete/my-1-rm"
   },
   "dependencies": {
     "@pinia/nuxt": "^0.9.0",
