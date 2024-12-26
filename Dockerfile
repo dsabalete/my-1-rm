@@ -3,12 +3,6 @@ FROM node:20-alpine
 
 LABEL org.opencontainers.image.description="Find your 1RM for any lift using the Brzycki formula"
 
-# Create working directory
-WORKDIR /app
-
-# Copy package files
-COPY package*.json bun.lockb ./
-
 # Install bash and curl
 RUN apk add --no-cache bash curl
 
@@ -18,17 +12,20 @@ RUN curl -fsSL https://bun.sh/install | bash
 # Set bun path
 ENV PATH="/root/.bun/bin:$PATH"
 
-# Verify bun installation
-RUN bun --version
+# Create working directory
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
 
 # Install dependencies using bun
-RUN bun install
+RUN npm ci
 
 # Copy the rest of the application
 COPY . .
 
 # Build the application using npm
-RUN bun run build
+RUN npm run build
 
 # Set host to listen on all interfaces
 ENV HOST=0.0.0.0
