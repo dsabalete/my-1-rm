@@ -1,3 +1,11 @@
+## [1.1.1](https://github.com/dsabalete/my-1-rm/compare/v1.1.0...v1.1.1) (2024-12-26)
+
+
+### Bug Fixes
+
+* netlify deploy ([07b8b1b](https://github.com/dsabalete/my-1-rm/commit/07b8b1b41208be9d8c12b9093144349209c47111))
+* release ci ([90182af](https://github.com/dsabalete/my-1-rm/commit/90182af5e46ddb213bb4b77c4c17f104517d89db))
+
 # [1.1.0](https://github.com/dsabalete/my-1-rm/compare/v1.0.1...v1.1.0) (2024-12-26)
 
 
