@@ -13,18 +13,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Node.js (for semantic-release)
+      - name: Set up Node.js
         uses: actions/setup-node@v4.1.0
         with:
           node-version: "20.18.0"
 
-      - name: Set Up Bun (for dependency installation)
-        uses: oven-sh/setup-bun@v1
-        with:
-          bun-version: latest
-
-      - name: Install Dependencies with Bun
-        run: bun install
+      - name: Install Dependencies
+        run: npm ci
 
       - name: Run Semantic Release
         env:
