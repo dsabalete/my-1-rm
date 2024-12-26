@@ -7,16 +7,28 @@ LABEL org.opencontainers.image.description="Find your 1RM for any lift using the
 WORKDIR /app
 
 # Copy package files
-COPY package*.json ./
+COPY package*.json bun.lockb ./
 
-# Install dependencies using npm ci for faster and more reliable builds
-RUN npm ci
+# Install bash and curl
+RUN apk add --no-cache bash curl
+
+# Install bun
+RUN curl -fsSL https://bun.sh/install | bash
+
+# Set bun path
+ENV PATH="/root/.bun/bin:$PATH"
+
+# Verify bun installation
+RUN bun --version
+
+# Install dependencies using bun
+RUN bun install
 
 # Copy the rest of the application
 COPY . .
 
 # Build the application using npm
-RUN npm run build
+RUN bun run build
 
 # Set host to listen on all interfaces
 ENV HOST=0.0.0.0
