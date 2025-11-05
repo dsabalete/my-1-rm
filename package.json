@@ -16,16 +16,15 @@
     "docker:push": "docker push dsabalete/my-1-rm"
   },
   "dependencies": {
-    "@pinia/nuxt": "^0.9.0",
-    "nuxt": "3.16.1",
-    "pinia": "^2.3.0",
-    "usebootstrap": "3.5.100",
-    "vue": "latest",
-    "vue-router": "latest"
+    "@pinia/nuxt": "^0.11.3",
+    "nuxt": "^3.20.0",
+    "pinia": "^3.0.4",
+    "usebootstrap": "^3.5.107",
+    "vue": "^3.5.22"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.6.1",
-    "@commitlint/config-conventional": "^19.6.0",
+    "@commitlint/cli": "^20.1.0",
+    "@commitlint/config-conventional": "^20.0.0",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/github": "^11.0.1",
