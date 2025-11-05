@@ -1,3 +1,7 @@
+<script setup lang="ts">
+// About page explaining the 1RM calculator and Brzycki formula
+</script>
+
 <template>
   <div class="about-page">
     <h1>1RM Calculator</h1>

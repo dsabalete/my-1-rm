@@ -7,9 +7,14 @@ export default defineNuxtConfig({
 
   postcss: {
     plugins: {
-      autoprefixer: {}
-    }
+      autoprefixer: {},
+    },
   },
-  css: ['@/assets/main.css'],
-  modules: ['usebootstrap']
+
+  css: ['~/assets/main.css'],
+
+  modules: [
+    '@pinia/nuxt',
+    'usebootstrap',
+  ],
 })

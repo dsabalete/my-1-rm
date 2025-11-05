@@ -1,7 +1,11 @@
+<script setup lang="ts">
+// NavigationBar component for the application
+</script>
+
 <template>
   <nav class="navbar">
-    <router-link to="/" class="navbar-item">My1RM Calculator</router-link>
-    <router-link to="/about" class="navbar-item">About</router-link>
+    <NuxtLink to="/" class="navbar-item">My1RM Calculator</NuxtLink>
+    <NuxtLink to="/about" class="navbar-item">About</NuxtLink>
   </nav>
 </template>
 
@@ -36,6 +40,7 @@
       animation: pulse 1s infinite;
     }
 
+    &.router-link-active,
     &.router-link-exact-active {
       color: #007bff;
       font-size: 20px;
