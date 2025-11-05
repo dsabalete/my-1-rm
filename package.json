@@ -19,7 +19,7 @@
     "@pinia/nuxt": "^0.9.0",
     "nuxt": "latest",
     "pinia": "^2.3.0",
-    "usebootstrap": "3.5.100",
+    "usebootstrap": "3.5.107",
     "vue": "latest",
     "vue-router": "latest"
   },
