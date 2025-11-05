@@ -17,4 +17,13 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     'usebootstrap',
   ],
+
+  runtimeConfig: {
+    // Private keys (only available on server-side)
+    // Public keys (exposed to client-side)
+    public: {
+      googleAnalyticsId: process.env.NUXT_PUBLIC_GOOGLE_ANALYTICS_ID || '',
+      googleTagManagerId: process.env.NUXT_PUBLIC_GOOGLE_TAG_MANAGER_ID || '',
+    },
+  },
 })

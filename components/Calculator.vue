@@ -2,16 +2,23 @@
 import { ref, onMounted, watch } from 'vue'
 import { useCalculatorStore } from '~/stores/calculator'
 import { useLocalStorage } from '~/composables/useLocalStorage'
+import { useAnalytics } from '~/composables/useAnalytics'
 import { DEFAULT_SETTINGS } from '~/constants/1rm'
 
 const store = useCalculatorStore()
 const { saveSettings: saveToLocalStorage, loadSettings } = useLocalStorage()
+const analytics = useAnalytics()
 
 const weight = ref<number>(DEFAULT_SETTINGS.weight)
 const reps = ref<number>(DEFAULT_SETTINGS.reps)
 
 const calculate = (): void => {
   store.update1RM(weight.value, reps.value)
+  
+  // Track calculation event
+  if (store.rm1 > 0) {
+    analytics.trackCalculation(weight.value, reps.value, store.rm1)
+  }
 }
 
 const saveSettings = (): void => {
@@ -19,6 +26,9 @@ const saveSettings = (): void => {
     weight: weight.value,
     reps: reps.value,
   })
+  
+  // Track settings save event
+  analytics.trackSettingsSave(weight.value, reps.value)
 }
 
 // Watch for changes and recalculate
