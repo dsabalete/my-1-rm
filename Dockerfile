@@ -1,10 +1,11 @@
 # Use a specific Node.js runtime as a parent image
-FROM node:20-alpine
+# Using lts-alpine ensures we get the latest LTS with security patches
+FROM node:lts-alpine
 
 LABEL org.opencontainers.image.description="Find your 1RM for any lift using the Brzycki formula"
 
-# Install bash and curl
-RUN apk add --no-cache bash curl
+# Update Alpine packages and install security patches
+RUN apk update && apk upgrade && apk add --no-cache bash curl
 
 # Install bun
 RUN curl -fsSL https://bun.sh/install | bash
@@ -12,20 +13,30 @@ RUN curl -fsSL https://bun.sh/install | bash
 # Set bun path
 ENV PATH="/root/.bun/bin:$PATH"
 
+# Create a non-root user for security
+RUN addgroup -g 1001 -S nodejs && \
+    adduser -S nodejs -u 1001
+
 # Create working directory
 WORKDIR /app
 
-# Copy package files
-COPY package*.json ./
+# Change ownership to non-root user
+RUN chown -R nodejs:nodejs /app
 
-# Install dependencies using bun
-RUN npm ci
+# Copy package files
+COPY --chown=nodejs:nodejs package*.json ./
+
+# Install dependencies using npm (as root, but files will be owned by nodejs)
+RUN npm ci && chown -R nodejs:nodejs /app
 
 # Copy the rest of the application
-COPY . .
+COPY --chown=nodejs:nodejs . .
 
-# Build the application using npm
-RUN npm run build
+# Build the application using npm (as root, but output will be owned by nodejs)
+RUN npm run build && chown -R nodejs:nodejs /app
+
+# Switch to non-root user
+USER nodejs
 
 # Set host to listen on all interfaces
 ENV HOST=0.0.0.0
