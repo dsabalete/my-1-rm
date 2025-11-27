@@ -5,7 +5,7 @@
 
 export default defineNuxtRouteMiddleware((to) => {
   // Only track on client-side
-  if (process.client) {
+  if (import.meta.client) {
     // Use setTimeout to ensure analytics is fully loaded
     setTimeout(() => {
       const analytics = useAnalytics()

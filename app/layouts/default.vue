@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { version } from '~/package.json'
+const config = useRuntimeConfig()
+const version = '1.2.0' // Version from package.json
 </script>
 
 <template>
