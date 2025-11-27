@@ -1,3 +1,17 @@
+# [1.3.0](https://github.com/dsabalete/my-1-rm/compare/v1.2.0...v1.3.0) (2025-11-27)
+
+
+### Bug Fixes
+
+* update last alpine version ([6782c0f](https://github.com/dsabalete/my-1-rm/commit/6782c0f1f9f664a16d31f5a67aac84448440a463))
+
+
+### Features
+
+* add ga-gtm tracking code ([f77442d](https://github.com/dsabalete/my-1-rm/commit/f77442ded394908f6168910250a383633c5211b8))
+* migrate to nuxt 4 ([bb235bb](https://github.com/dsabalete/my-1-rm/commit/bb235bbe6dda49990cb8ec6eeaca61f9f0d244b2))
+* migrate to nuxt 4 ([be8eea1](https://github.com/dsabalete/my-1-rm/commit/be8eea1907ccc6e6cd62584cbb48c01c09f98432))
+
 ## [1.1.1](https://github.com/dsabalete/my-1-rm/compare/v1.1.0...v1.1.1) (2024-12-26)
 
 
