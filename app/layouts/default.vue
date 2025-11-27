@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const config = useRuntimeConfig()
-const version = '1.2.0' // Version from package.json
+const version = config.public.version
 </script>
 
 <template>
@@ -34,4 +34,3 @@ const version = '1.2.0' // Version from package.json
   }
 }
 </style>
-
