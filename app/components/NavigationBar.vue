@@ -9,7 +9,7 @@
   </nav>
 </template>
 
-<style lang="postcss" scoped>
+<style lang="css" scoped>
 @keyframes pulse {
 
   0%,

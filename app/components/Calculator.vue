@@ -60,7 +60,7 @@ onMounted(() => {
   </div>
 </template>
 
-<style lang="postcss" scoped>
+<style lang="css" scoped>
 .calculator {
   .form-group {
     margin-bottom: 2rem;

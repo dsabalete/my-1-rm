@@ -12,7 +12,7 @@ const version = config.public.version
   </div>
 </template>
 
-<style lang="postcss" scoped>
+<style lang="css" scoped>
 .layout-default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

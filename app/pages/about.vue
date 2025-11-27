@@ -13,7 +13,7 @@
   </div>
 </template>
 
-<style lang="postcss" scoped>
+<style lang="css" scoped>
 .about-page {
   margin: 20px auto;
   max-width: 800px;

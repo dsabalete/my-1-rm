@@ -9,7 +9,7 @@
   </div>
 </template>
 
-<style lang="postcss" scoped>
+<style lang="css" scoped>
 .home-page {
   max-width: 800px;
   margin: 20px auto;

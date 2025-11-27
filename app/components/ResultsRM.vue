@@ -6,10 +6,19 @@ import { REP_PERCENTAGES } from '~/constants/1rm'
 const store = useCalculatorStore()
 
 /**
- * Format weight value with no decimals and unit
+ * Convert kilograms to pounds
+ */
+const kgToLb = (kg: number): number => {
+  return kg * 2.20462
+}
+
+/**
+ * Format weight value with no decimals and unit (showing both Kg and Lb)
  */
 const formatWeight = (value: number): string => {
-  return `${value.toFixed(0)} Kg`
+  const kg = value.toFixed(0)
+  const lb = kgToLb(value).toFixed(0)
+  return `${kg} Kg (${lb} lbs)`
 }
 
 /**
@@ -42,7 +51,7 @@ const calculateRepWeight = (percentage: number): number => {
   </div>
 </template>
 
-<style lang="postcss" scoped>
+<style lang="css" scoped>
 .result {
   margin: 30px 0;
 
