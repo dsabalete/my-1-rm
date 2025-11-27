@@ -23,17 +23,17 @@ WORKDIR /app
 # Change ownership to non-root user
 RUN chown -R nodejs:nodejs /app
 
-# Copy package files
-COPY --chown=nodejs:nodejs package*.json ./
+# Copy package files and lockfile
+COPY --chown=nodejs:nodejs package.json bun.lock ./
 
-# Install dependencies using npm (as root, but files will be owned by nodejs)
-RUN npm ci && chown -R nodejs:nodejs /app
+# Install dependencies using bun (as root, but files will be owned by nodejs)
+RUN bun install --frozen-lockfile && chown -R nodejs:nodejs /app
 
 # Copy the rest of the application
 COPY --chown=nodejs:nodejs . .
 
-# Build the application using npm (as root, but output will be owned by nodejs)
-RUN npm run build && chown -R nodejs:nodejs /app
+# Build the application using bun (as root, but output will be owned by nodejs)
+RUN bun run build && chown -R nodejs:nodejs /app
 
 # Switch to non-root user
 USER nodejs
