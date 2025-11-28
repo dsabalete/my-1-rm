@@ -1,3 +1,10 @@
+## [1.3.2](https://github.com/dsabalete/my-1-rm/compare/v1.3.1...v1.3.2) (2025-11-28)
+
+
+### Bug Fixes
+
+* configure Nuxt for Netlify deployment and enable SSR; update contact form structure ([5c0511b](https://github.com/dsabalete/my-1-rm/commit/5c0511be3ecde662e4d47f563828c05ba780fb5c))
+
 ## [1.3.1](https://github.com/dsabalete/my-1-rm/compare/v1.3.0...v1.3.1) (2025-11-28)
 
 
