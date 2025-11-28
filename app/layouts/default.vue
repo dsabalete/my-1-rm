@@ -5,10 +5,16 @@ const version = config.public.version
 
 <template>
   <div class="layout-default">
-    <NavigationBar />
-    <p class="app-hint">Calculate your 1 Repetition Maximum (1RM) for any exercise.</p>
-    <slot />
-    <p class="version-hint">Version: {{ version }}</p>
+    <header>
+      <NavigationBar />
+    </header>
+    <main>
+      <p class="app-hint">Calculate your 1 Repetition Maximum (1RM) for any exercise.</p>
+      <slot />
+    </main>
+    <footer>
+      <p class="version-hint">Version: {{ version }}</p>
+    </footer>
   </div>
 </template>
 

@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
+const config = useRuntimeConfig()
+const siteUrl = config.public.siteUrl
+
 // Form fields
 const name = ref('')
 const email = ref('')
@@ -9,6 +12,77 @@ const message = ref('')
 
 // Email recipient - you can change this to your actual email
 const recipientEmail = 'info@davidsabalete.com' // TODO: Replace with your actual email
+
+useHead({
+  title: 'Contact Us - 1RM Calculator Support | My1RM',
+  meta: [
+    {
+      name: 'description',
+      content: 'Contact the My1RM Calculator team. Have questions, suggestions, or feedback? We\'d love to hear from you!',
+    },
+    {
+      name: 'keywords',
+      content: 'contact 1RM calculator, support, feedback, questions, help',
+    },
+    // Open Graph
+    {
+      property: 'og:title',
+      content: 'Contact Us - 1RM Calculator Support',
+    },
+    {
+      property: 'og:description',
+      content: 'Contact the My1RM Calculator team. Have questions, suggestions, or feedback? We\'d love to hear from you!',
+    },
+    {
+      property: 'og:type',
+      content: 'website',
+    },
+    {
+      property: 'og:url',
+      content: `${siteUrl}/contact`,
+    },
+    // Twitter Card
+    {
+      name: 'twitter:card',
+      content: 'summary',
+    },
+    {
+      name: 'twitter:title',
+      content: 'Contact Us - 1RM Calculator Support',
+    },
+    {
+      name: 'twitter:description',
+      content: 'Contact the My1RM Calculator team. Have questions, suggestions, or feedback?',
+    },
+  ],
+  link: [
+    {
+      rel: 'canonical',
+      href: `${siteUrl}/contact`,
+    },
+  ],
+})
+
+// Structured data (JSON-LD)
+useHead({
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'ContactPage',
+        name: 'Contact Us',
+        description: 'Contact the My1RM Calculator team for questions, suggestions, or feedback.',
+        url: `${siteUrl}/contact`,
+        mainEntity: {
+          '@type': 'Organization',
+          name: 'My1RM Calculator',
+          email: recipientEmail,
+        },
+      }),
+    },
+  ],
+})
 
 // Function to create mailto link with all form values
 const handleSubmit = (event: Event) => {

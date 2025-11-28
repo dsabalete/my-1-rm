@@ -1,5 +1,105 @@
 <script setup lang="ts">
 // Home page with calculator and results components
+const config = useRuntimeConfig()
+const siteUrl = config.public.siteUrl
+
+useHead({
+  title: '1RM Calculator - Calculate Your One Repetition Maximum | My1RM',
+  meta: [
+    {
+      name: 'description',
+      content: 'Free 1RM calculator using the Brzycki formula. Calculate your one repetition maximum (1RM) for any exercise safely. Supports kg and lbs. No registration required.',
+    },
+    {
+      name: 'keywords',
+      content: '1RM calculator, one rep max calculator, Brzycki formula, max weight calculator, strength training calculator, 1RM test, weightlifting calculator',
+    },
+    // Open Graph
+    {
+      property: 'og:title',
+      content: '1RM Calculator - Calculate Your One Repetition Maximum',
+    },
+    {
+      property: 'og:description',
+      content: 'Free 1RM calculator using the Brzycki formula. Calculate your one repetition maximum for any exercise safely.',
+    },
+    {
+      property: 'og:type',
+      content: 'website',
+    },
+    {
+      property: 'og:url',
+      content: siteUrl,
+    },
+    {
+      property: 'og:site_name',
+      content: 'My1RM Calculator',
+    },
+    // Twitter Card
+    {
+      name: 'twitter:card',
+      content: 'summary',
+    },
+    {
+      name: 'twitter:title',
+      content: '1RM Calculator - Calculate Your One Repetition Maximum',
+    },
+    {
+      name: 'twitter:description',
+      content: 'Free 1RM calculator using the Brzycki formula. Calculate your one repetition maximum for any exercise safely.',
+    },
+  ],
+  link: [
+    {
+      rel: 'canonical',
+      href: siteUrl,
+    },
+  ],
+})
+
+// Structured data (JSON-LD)
+useHead({
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: '1RM Calculator',
+        description: 'Free 1RM calculator using the Brzycki formula. Calculate your one repetition maximum for any exercise safely.',
+        url: siteUrl,
+        applicationCategory: 'HealthApplication',
+        operatingSystem: 'Web',
+        offers: {
+          '@type': 'Offer',
+          price: '0',
+          priceCurrency: 'USD',
+        },
+        featureList: [
+          'Calculate 1RM using Brzycki formula',
+          'Support for kg and lbs units',
+          'Calculate rep maxes for multiple rep ranges',
+          'Save default settings locally',
+        ],
+      }),
+    },
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        name: '1RM Calculator',
+        description: 'Free 1RM calculator using the Brzycki formula. Calculate your one repetition maximum for any exercise safely.',
+        url: siteUrl,
+        mainEntity: {
+          '@type': 'SoftwareApplication',
+          name: '1RM Calculator',
+          applicationCategory: 'HealthApplication',
+        },
+      }),
+    },
+  ],
+})
 </script>
 
 <template>
