@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/dsabalete/my-1-rm/compare/v1.5.0...v1.6.0) (2025-11-28)
+
+
+### Features
+
+* enhance SEO and site structure with sitemap, meta tags, and site URL configuration ([615b586](https://github.com/dsabalete/my-1-rm/commit/615b586740ce1715aec71c34dc4c9b3bae92b822))
+
 # [1.5.0](https://github.com/dsabalete/my-1-rm/compare/v1.4.0...v1.5.0) (2025-11-28)
 
 
