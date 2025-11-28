@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/dsabalete/my-1-rm/compare/v1.6.0...v1.7.0) (2025-11-28)
+
+
+### Features
+
+* add support for multiple 1RM calculation formulas ([a3b87a0](https://github.com/dsabalete/my-1-rm/commit/a3b87a09118fcf94713b76b0c0dc66a7ad41a4a4))
+
 # [1.6.0](https://github.com/dsabalete/my-1-rm/compare/v1.5.0...v1.6.0) (2025-11-28)
 
 
