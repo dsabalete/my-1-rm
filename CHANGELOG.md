@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/dsabalete/my-1-rm/compare/v1.4.0...v1.5.0) (2025-11-28)
+
+
+### Features
+
+* implement responsive navigation bar with mobile menu toggle functionality ([142be36](https://github.com/dsabalete/my-1-rm/commit/142be3632f9e00a2a7e46d0fd7f9a4ad1b63afea))
+
 # [1.4.0](https://github.com/dsabalete/my-1-rm/compare/v1.3.2...v1.4.0) (2025-11-28)
 
 
