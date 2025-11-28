@@ -11,7 +11,8 @@ const lastUpdated = '2024-12-19'
     <section>
       <h2>Introduction</h2>
       <p>
-        This Privacy Policy describes how My1RM Calculator ("we", "our", or "us") collects, uses, and protects your information when you use our website and services.
+        This Privacy Policy describes how My1RM Calculator ("we", "our", or "us") collects, uses, and protects your
+        information when you use our website and services.
       </p>
       <p>
         By using our service, you agree to the collection and use of information in accordance with this policy.
@@ -20,10 +21,11 @@ const lastUpdated = '2024-12-19'
 
     <section>
       <h2>Information We Collect</h2>
-      
+
       <h3>Automatically Collected Information</h3>
       <p>
-        When you visit our website, we automatically collect certain information through Google Tag Manager and Google Analytics 4, including:
+        When you visit our website, we automatically collect certain information through Google Tag Manager and Google
+        Analytics 4, including:
       </p>
       <ul>
         <li>IP address</li>
@@ -36,7 +38,8 @@ const lastUpdated = '2024-12-19'
 
       <h3>Locally Stored Information</h3>
       <p>
-        Our application uses browser localStorage to store your calculator preferences locally on your device, including:
+        Our application uses browser localStorage to store your calculator preferences locally on your device,
+        including:
       </p>
       <ul>
         <li>Default weight values</li>
@@ -63,30 +66,40 @@ const lastUpdated = '2024-12-19'
     <section>
       <h2>Third-Party Services</h2>
       <p>
-        We use Google Tag Manager and Google Analytics 4 to collect and analyze usage data. These services may collect information about your use of our website and other websites.
+        We use Google Tag Manager and Google Analytics 4 to collect and analyze usage data. These services may collect
+        information about your use of our website and other websites.
       </p>
       <p>
-        Google's use of advertising cookies enables it and its partners to serve ads to you based on your visit to our site and/or other sites on the Internet. You may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer">Google's Ads Settings</a>.
+        Google's use of advertising cookies enables it and its partners to serve ads to you based on your visit to our
+        site and/or other sites on the Internet. You may opt out of personalized advertising by visiting <a
+          href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer">Google's Ads
+          Settings</a>.
       </p>
       <p>
-        For more information about how Google collects and processes data, please visit <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google's Privacy Policy</a>.
+        For more information about how Google collects and processes data, please visit <a
+          href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google's Privacy
+          Policy</a>.
       </p>
     </section>
 
     <section>
       <h2>Cookies and Tracking Technologies</h2>
       <p>
-        We use cookies and similar tracking technologies to track activity on our website and hold certain information. Cookies are files with a small amount of data which may include an anonymous unique identifier.
+        We use cookies and similar tracking technologies to track activity on our website and hold certain information.
+        Cookies are files with a small amount of data which may include an anonymous unique identifier.
       </p>
       <p>
-        You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our service.
+        You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you
+        do not accept cookies, you may not be able to use some portions of our service.
       </p>
     </section>
 
     <section>
       <h2>Data Security</h2>
       <p>
-        We implement appropriate technical and organizational measures to protect your personal information. However, no method of transmission over the Internet or electronic storage is 100% secure, and we cannot guarantee absolute security.
+        We implement appropriate technical and organizational measures to protect your personal information. However, no
+        method of transmission over the Internet or electronic storage is 100% secure, and we cannot guarantee absolute
+        security.
       </p>
     </section>
 
@@ -97,32 +110,42 @@ const lastUpdated = '2024-12-19'
         <li><strong>Access:</strong> You have the right to request access to your personal information.</li>
         <li><strong>Correction:</strong> You have the right to request correction of inaccurate information.</li>
         <li><strong>Deletion:</strong> You have the right to request deletion of your personal information.</li>
-        <li><strong>Opt-out:</strong> You can opt out of Google Analytics by installing the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">Google Analytics Opt-out Browser Add-on</a>.</li>
-        <li><strong>LocalStorage:</strong> You can clear your browser's localStorage to remove locally stored calculator preferences.</li>
+        <li><strong>Opt-out:</strong> You can opt out of Google Analytics by installing the <a
+            href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">Google Analytics
+            Opt-out Browser Add-on</a>.</li>
+        <li><strong>LocalStorage:</strong> You can clear your browser's localStorage to remove locally stored calculator
+          preferences.</li>
       </ul>
     </section>
 
     <section>
       <h2>Children's Privacy</h2>
       <p>
-        Our service is not intended for children under the age of 13. We do not knowingly collect personal information from children under 13. If you are a parent or guardian and believe your child has provided us with personal information, please contact us.
+        Our service is not intended for children under the age of 13. We do not knowingly collect personal information
+        from children under 13. If you are a parent or guardian and believe your child has provided us with personal
+        information, please contact us.
       </p>
     </section>
 
     <section>
       <h2>Changes to This Privacy Policy</h2>
       <p>
-        We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date.
+        We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy
+        Policy on this page and updating the "Last updated" date.
       </p>
       <p>
-        You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.
+        You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are
+        effective when they are posted on this page.
       </p>
     </section>
 
     <section>
       <h2>Contact Us</h2>
       <p>
-        If you have any questions about this Privacy Policy, please contact us through our <NuxtLink to="/about">About</NuxtLink> page or by visiting our website.
+        If you have any questions about this Privacy Policy, please contact us through our <NuxtLink to="/contact">
+          Contact
+        </NuxtLink> page or by visiting <a href="https://www.davidsabalete.com" target="_blank"
+          rel="noopener noreferrer">my website</a>.
       </p>
     </section>
   </div>
@@ -194,4 +217,3 @@ const lastUpdated = '2024-12-19'
   }
 }
 </style>
-

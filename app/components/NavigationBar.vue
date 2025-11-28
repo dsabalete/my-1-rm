@@ -6,6 +6,7 @@
   <nav class="navbar">
     <NuxtLink to="/" class="navbar-item">My1RM Calculator</NuxtLink>
     <NuxtLink to="/about" class="navbar-item">About</NuxtLink>
+    <NuxtLink to="/contact" class="navbar-item">Contact</NuxtLink>
     <NuxtLink to="/privacy" class="navbar-item">Privacy Policy</NuxtLink>
   </nav>
 </template>
