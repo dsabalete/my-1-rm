@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/dsabalete/my-1-rm/compare/v1.7.0...v1.8.0) (2025-11-28)
+
+
+### Features
+
+* add BuyMeACoffeeButton component to support creator donations ([7fd6a81](https://github.com/dsabalete/my-1-rm/commit/7fd6a817443e72f5bc54740c186afde0ff69a06e))
+
 # [1.7.0](https://github.com/dsabalete/my-1-rm/compare/v1.6.0...v1.7.0) (2025-11-28)
 
 
