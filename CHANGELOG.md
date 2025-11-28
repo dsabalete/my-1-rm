@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/dsabalete/my-1-rm/compare/v1.8.1...v1.9.0) (2025-11-28)
+
+
+### Features
+
+* add ads.txt file for ad network configuration ([0b5c51f](https://github.com/dsabalete/my-1-rm/commit/0b5c51fde67a4736448527cbeeddef6da9607b9f))
+
 ## [1.8.1](https://github.com/dsabalete/my-1-rm/compare/v1.8.0...v1.8.1) (2025-11-28)
 
 
