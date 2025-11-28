@@ -10,7 +10,7 @@
       to you as soon as possible.
     </p>
 
-    <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" class="contact-form">
+    <form name="contact" method="POST" data-netlify="true" class="contact-form">
       <!-- Hidden field for Netlify form identification -->
       <input type="hidden" name="form-name" value="contact" />
 
