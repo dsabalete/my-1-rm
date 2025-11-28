@@ -1,48 +1,71 @@
 <script setup lang="ts">
-// Static contact page with Netlify form handling
+import { ref } from 'vue'
+
+// Form fields
+const name = ref('')
+const email = ref('')
+const subject = ref('')
+const message = ref('')
+
+// Email recipient - you can change this to your actual email
+const recipientEmail = 'info@davidsabalete.com' // TODO: Replace with your actual email
+
+// Function to create mailto link with all form values
+const handleSubmit = (event: Event) => {
+  event.preventDefault()
+
+  // Validate form
+  const form = event.target as HTMLFormElement
+  if (!form.checkValidity()) {
+    form.reportValidity()
+    return
+  }
+
+  // Encode values for mailto URL
+  const encodedSubject = encodeURIComponent(subject.value)
+  const encodedBody = encodeURIComponent(
+    `Name: ${name.value}\nEmail: ${email.value}\n\nMessage:\n${message.value}`
+  )
+
+  // Create mailto link
+  const mailtoLink = `mailto:${recipientEmail}?subject=${encodedSubject}&body=${encodedBody}`
+
+  // Open email client
+  window.location.href = mailtoLink
+}
 </script>
 
 <template>
   <div class="contact-page">
     <h1>Contact Us</h1>
     <p class="intro-text">
-      Have a question, suggestion, or feedback? We'd love to hear from you! Fill out the form below and we'll get back
-      to you as soon as possible.
+      Have a question, suggestion, or feedback? We'd love to hear from you! Fill out the form below and it will open
+      your email client with all the information pre-filled.
     </p>
 
-    <form name="contact" method="POST" data-netlify="true" class="contact-form">
-      <!-- Hidden field for Netlify form identification -->
-      <input type="hidden" name="form-name" value="contact" />
-
-      <!-- Honeypot field for spam protection -->
-      <div style="position: absolute; left: -9999px;" aria-hidden="true">
-        <label>
-          Don't fill this out if you're human:
-          <input name="bot-field" />
-        </label>
-      </div>
-
+    <form @submit.prevent="handleSubmit" class="contact-form">
       <div class="form-group">
         <label for="name">Name <span class="required">*</span></label>
-        <input type="text" id="name" name="name" class="form-control" placeholder="Your name" required minlength="2" />
+        <input type="text" id="name" name="name" v-model="name" class="form-control" placeholder="Your name" required
+          minlength="2" />
       </div>
 
       <div class="form-group">
         <label for="email">Email <span class="required">*</span></label>
-        <input type="email" id="email" name="email" class="form-control" placeholder="your.email@example.com"
-          required />
+        <input type="email" id="email" name="email" v-model="email" class="form-control"
+          placeholder="your.email@example.com" required />
       </div>
 
       <div class="form-group">
         <label for="subject">Subject <span class="required">*</span></label>
-        <input type="text" id="subject" name="subject" class="form-control" placeholder="What is this regarding?"
-          required minlength="3" />
+        <input type="text" id="subject" name="subject" v-model="subject" class="form-control"
+          placeholder="What is this regarding?" required minlength="3" />
       </div>
 
       <div class="form-group">
         <label for="message">Message <span class="required">*</span></label>
-        <textarea id="message" name="message" class="form-control" rows="6" placeholder="Tell us what's on your mind..."
-          required minlength="10"></textarea>
+        <textarea id="message" name="message" v-model="message" class="form-control" rows="6"
+          placeholder="Tell us what's on your mind..." required minlength="10"></textarea>
         <small class="form-text text-muted">
           Minimum 10 characters required
         </small>
@@ -50,15 +73,15 @@
 
       <div class="form-actions">
         <button type="submit" class="btn btn-primary">
-          Send Message
+          Open Email Client
         </button>
       </div>
     </form>
 
     <div class="contact-info">
       <p class="note">
-        <strong>Note:</strong> This form is powered by Netlify Forms. Your message will be securely submitted and we'll
-        receive it directly.
+        <strong>Note:</strong> Clicking "Open Email Client" will open your default email application with all fields
+        pre-filled. You can review and send the email from there.
       </p>
     </div>
   </div>
