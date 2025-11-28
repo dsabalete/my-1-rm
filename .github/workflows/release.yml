@@ -19,6 +19,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetch all history for semantic-release
+          fetch-tags: true # Fetch all tags so semantic-release can detect existing tags
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2

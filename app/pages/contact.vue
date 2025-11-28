@@ -21,10 +21,10 @@ const isEmailValid = computed(() => {
 })
 const isSubjectValid = computed(() => subject.value.trim().length >= 3)
 const isMessageValid = computed(() => message.value.trim().length >= 10)
-const isFormValid = computed(() => 
-  isNameValid.value && 
-  isEmailValid.value && 
-  isSubjectValid.value && 
+const isFormValid = computed(() =>
+  isNameValid.value &&
+  isEmailValid.value &&
+  isSubjectValid.value &&
   isMessageValid.value
 )
 
@@ -51,7 +51,7 @@ const messageError = computed(() => {
 
 const handleSubmit = async (e: Event) => {
   e.preventDefault()
-  
+
   if (!isFormValid.value) {
     return
   }
@@ -61,12 +61,13 @@ const handleSubmit = async (e: Event) => {
   submitError.value = false
 
   try {
-    // Create mailto link with form data
-    const mailtoBody = encodeURIComponent(
-      `Name: ${name.value}\n\nEmail: ${email.value}\n\nMessage:\n${message.value}`
-    )
-    const mailtoSubject = encodeURIComponent(subject.value)
-    const mailtoLink = `mailto:?subject=${mailtoSubject}&body=${mailtoBody}`
+    // Prepare form data for Netlify (URL-encoded format)
+    const formData = new URLSearchParams()
+    formData.append('form-name', 'contact')
+    formData.append('name', name.value.trim())
+    formData.append('email', email.value.trim())
+    formData.append('subject', subject.value.trim())
+    formData.append('message', message.value.trim())
 
     // Track contact form submission
     analytics.trackEvent({
@@ -79,20 +80,28 @@ const handleSubmit = async (e: Event) => {
       },
     })
 
-    // Open email client
-    window.location.href = mailtoLink
+    // Submit to Netlify
+    const response = await fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: formData.toString(),
+    })
 
-    // Show success message
-    submitSuccess.value = true
-    
-    // Reset form after a delay
-    setTimeout(() => {
-      name.value = ''
-      email.value = ''
-      subject.value = ''
-      message.value = ''
-      submitSuccess.value = false
-    }, 5000)
+    if (response.ok) {
+      // Show success message
+      submitSuccess.value = true
+
+      // Reset form after a delay
+      setTimeout(() => {
+        name.value = ''
+        email.value = ''
+        subject.value = ''
+        message.value = ''
+        submitSuccess.value = false
+      }, 5000)
+    } else {
+      throw new Error('Form submission failed')
+    }
   } catch (error) {
     submitError.value = true
     console.error('Error submitting form:', error)
@@ -115,29 +124,36 @@ const resetForm = () => {
   <div class="contact-page">
     <h1>Contact Us</h1>
     <p class="intro-text">
-      Have a question, suggestion, or feedback? We'd love to hear from you! Fill out the form below and we'll get back to you as soon as possible.
+      Have a question, suggestion, or feedback? We'd love to hear from you! Fill out the form below and we'll get back
+      to you as soon as possible.
     </p>
 
     <div v-if="submitSuccess" class="alert alert-success" role="alert">
-      <strong>Thank you!</strong> Your message has been prepared. Your email client should open shortly. If it doesn't, please send your message manually.
+      <strong>Thank you!</strong> Your message has been sent successfully. We'll get back to you as soon as possible.
     </div>
 
     <div v-if="submitError" class="alert alert-danger" role="alert">
       <strong>Error!</strong> There was a problem submitting your message. Please try again or contact us directly.
     </div>
 
-    <form @submit="handleSubmit" class="contact-form">
+    <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" @submit="handleSubmit"
+      class="contact-form">
+      <!-- Hidden field for Netlify form identification -->
+      <input type="hidden" name="form-name" value="contact" />
+
+      <!-- Honeypot field for spam protection -->
+      <div style="position: absolute; left: -9999px;" aria-hidden="true">
+        <label>
+          Don't fill this out if you're human:
+          <input name="bot-field" />
+        </label>
+      </div>
+
       <div class="form-group">
         <label for="name">Name <span class="required">*</span></label>
-        <input
-          type="text"
-          id="name"
-          class="form-control"
-          :class="{ 'is-invalid': nameError, 'is-valid': name.length > 0 && isNameValid }"
-          v-model="name"
-          placeholder="Your name"
-          required
-        />
+        <input type="text" id="name" name="name" class="form-control"
+          :class="{ 'is-invalid': nameError, 'is-valid': name.length > 0 && isNameValid }" v-model="name"
+          placeholder="Your name" required />
         <div v-if="nameError" class="invalid-feedback">
           {{ nameError }}
         </div>
@@ -145,15 +161,9 @@ const resetForm = () => {
 
       <div class="form-group">
         <label for="email">Email <span class="required">*</span></label>
-        <input
-          type="email"
-          id="email"
-          class="form-control"
-          :class="{ 'is-invalid': emailError, 'is-valid': email.length > 0 && isEmailValid }"
-          v-model="email"
-          placeholder="your.email@example.com"
-          required
-        />
+        <input type="email" id="email" name="email" class="form-control"
+          :class="{ 'is-invalid': emailError, 'is-valid': email.length > 0 && isEmailValid }" v-model="email"
+          placeholder="your.email@example.com" required />
         <div v-if="emailError" class="invalid-feedback">
           {{ emailError }}
         </div>
@@ -161,15 +171,9 @@ const resetForm = () => {
 
       <div class="form-group">
         <label for="subject">Subject <span class="required">*</span></label>
-        <input
-          type="text"
-          id="subject"
-          class="form-control"
-          :class="{ 'is-invalid': subjectError, 'is-valid': subject.length > 0 && isSubjectValid }"
-          v-model="subject"
-          placeholder="What is this regarding?"
-          required
-        />
+        <input type="text" id="subject" name="subject" class="form-control"
+          :class="{ 'is-invalid': subjectError, 'is-valid': subject.length > 0 && isSubjectValid }" v-model="subject"
+          placeholder="What is this regarding?" required />
         <div v-if="subjectError" class="invalid-feedback">
           {{ subjectError }}
         </div>
@@ -177,15 +181,9 @@ const resetForm = () => {
 
       <div class="form-group">
         <label for="message">Message <span class="required">*</span></label>
-        <textarea
-          id="message"
-          class="form-control"
-          :class="{ 'is-invalid': messageError, 'is-valid': message.length > 0 && isMessageValid }"
-          v-model="message"
-          rows="6"
-          placeholder="Tell us what's on your mind..."
-          required
-        ></textarea>
+        <textarea id="message" name="message" class="form-control"
+          :class="{ 'is-invalid': messageError, 'is-valid': message.length > 0 && isMessageValid }" v-model="message"
+          rows="6" placeholder="Tell us what's on your mind..." required></textarea>
         <div v-if="messageError" class="invalid-feedback">
           {{ messageError }}
         </div>
@@ -195,20 +193,11 @@ const resetForm = () => {
       </div>
 
       <div class="form-actions">
-        <button
-          type="submit"
-          class="btn btn-primary"
-          :disabled="!isFormValid || isSubmitting"
-        >
+        <button type="submit" class="btn btn-primary" :disabled="!isFormValid || isSubmitting">
           <span v-if="isSubmitting">Sending...</span>
           <span v-else>Send Message</span>
         </button>
-        <button
-          type="button"
-          class="btn btn-secondary"
-          @click="resetForm"
-          :disabled="isSubmitting"
-        >
+        <button type="button" class="btn btn-secondary" @click="resetForm" :disabled="isSubmitting">
           Reset
         </button>
       </div>
@@ -216,8 +205,8 @@ const resetForm = () => {
 
     <div class="contact-info">
       <p class="note">
-        <strong>Note:</strong> This form will open your default email client to send the message. 
-        Make sure you have an email client configured on your device.
+        <strong>Note:</strong> This form is powered by Netlify Forms. Your message will be securely submitted and we'll
+        receive it directly.
       </p>
     </div>
   </div>
@@ -361,4 +350,3 @@ const resetForm = () => {
   }
 }
 </style>
-
