@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/dsabalete/my-1-rm/compare/v1.3.0...v1.3.1) (2025-11-28)
+
+
+### Bug Fixes
+
+* prevent default form submission behavior in contact form ([fb03031](https://github.com/dsabalete/my-1-rm/commit/fb03031e3fee320c49765d2bb868b3459bbb9b8e))
+
 # [1.3.0](https://github.com/dsabalete/my-1-rm/compare/v1.2.0...v1.3.0) (2025-11-28)
 
 
