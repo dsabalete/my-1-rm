@@ -1,3 +1,10 @@
+# [1.10.0](https://github.com/dsabalete/my-1-rm/compare/v1.9.0...v1.10.0) (2025-11-28)
+
+
+### Features
+
+* integrate Google Ads script for ad network support ([2a957bf](https://github.com/dsabalete/my-1-rm/commit/2a957bf5d660ced761a49b5591d7f2386c835bc1))
+
 # [1.9.0](https://github.com/dsabalete/my-1-rm/compare/v1.8.1...v1.9.0) (2025-11-28)
 
 
