@@ -40,25 +40,28 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## Analytics Setup
 
-This project includes built-in support for Google Analytics 4 (GA4) and Google Tag Manager (GTM).
+This project includes built-in support for Google Tag Manager (GTM). Google Analytics 4 (GA4) should be configured externally through your GTM container.
 
 ### Configuration
 
 1. Copy the example environment file:
+
    ```bash
    cp env.example .env
    ```
 
-2. Add your analytics IDs to the `.env` file:
+2. Add your Google Tag Manager Container ID to the `.env` file:
+
    ```env
-   # Google Analytics 4 (GA4) Measurement ID
-   NUXT_PUBLIC_GOOGLE_ANALYTICS_ID=G-XXXXXXXXXX
-   
-   # Google Tag Manager Container ID (optional)
+   # Google Tag Manager Container ID
    NUXT_PUBLIC_GOOGLE_TAG_MANAGER_ID=GTM-XXXXXXX
    ```
 
-3. At least one analytics ID is required for tracking to work.
+3. Configure GA4 in your GTM container:
+
+   - Go to your [Google Tag Manager](https://tagmanager.google.com/) container
+   - Add a Google Analytics: GA4 Configuration tag
+   - Set up your GA4 Measurement ID in GTM
 
 4. Analytics will only be active in production mode to avoid tracking during development.
 
@@ -77,14 +80,14 @@ The following events are automatically tracked:
 You can track custom events in your components:
 
 ```typescript
-const analytics = useAnalytics()
+const analytics = useAnalytics();
 
 // Track a custom event
 analytics.trackEvent({
-  eventName: 'custom_event',
+  eventName: "custom_event",
   eventParams: {
-    key: 'value',
+    key: "value",
     number: 123,
   },
-})
+});
 ```

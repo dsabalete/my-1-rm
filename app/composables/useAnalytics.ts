@@ -1,6 +1,7 @@
 /**
  * Analytics composable for tracking events
- * Supports Google Analytics 4 (GA4) and Google Tag Manager (GTM)
+ * Uses Google Tag Manager (GTM)
+ * Note: GA4 is configured externally through GTM
  */
 
 export interface AnalyticsEvent {
@@ -14,10 +15,7 @@ export interface AnalyticsEvent {
 export function useAnalytics() {
   const config = useRuntimeConfig()
   const isEnabled = computed(() => {
-    return (
-      (config.public.googleAnalyticsId || config.public.googleTagManagerId) &&
-      import.meta.env.PROD
-    )
+    return config.public.googleTagManagerId && import.meta.env.PROD
   })
 
   /**
@@ -30,17 +28,16 @@ export function useAnalytics() {
 
     const { eventName, eventParams } = event
 
-    // Google Analytics 4 (gtag)
-    if (config.public.googleAnalyticsId && typeof window !== 'undefined' && window.gtag) {
-      window.gtag('event', eventName, eventParams)
-    }
-
-    // Google Tag Manager
-    if (config.public.googleTagManagerId && typeof window !== 'undefined' && window.dataLayer) {
-      window.dataLayer.push({
-        event: eventName,
-        ...eventParams,
-      })
+    try {
+      // Google Tag Manager
+      if (typeof window !== 'undefined' && window.dataLayer) {
+        window.dataLayer.push({
+          event: eventName,
+          ...eventParams,
+        })
+      }
+    } catch (error) {
+      // Silently handle errors from browser extensions or blocked scripts
     }
   }
 
@@ -52,21 +49,17 @@ export function useAnalytics() {
       return
     }
 
-    // Google Analytics 4 (gtag)
-    if (config.public.googleAnalyticsId && typeof window !== 'undefined' && window.gtag) {
-      window.gtag('config', config.public.googleAnalyticsId, {
-        page_path: path,
-        page_title: title,
-      })
-    }
-
-    // Google Tag Manager
-    if (config.public.googleTagManagerId && typeof window !== 'undefined' && window.dataLayer) {
-      window.dataLayer.push({
-        event: 'page_view',
-        page_path: path,
-        page_title: title,
-      })
+    try {
+      // Google Tag Manager
+      if (typeof window !== 'undefined' && window.dataLayer) {
+        window.dataLayer.push({
+          event: 'page_view',
+          page_path: path,
+          page_title: title,
+        })
+      }
+    } catch (error) {
+      // Silently handle errors from browser extensions or blocked scripts
     }
   }
 
@@ -109,11 +102,6 @@ export function useAnalytics() {
 // Extend Window interface for TypeScript
 declare global {
   interface Window {
-    gtag?: (
-      command: string,
-      targetId: string | object,
-      config?: Record<string, any>
-    ) => void
     dataLayer?: Array<Record<string, any>>
   }
 }
