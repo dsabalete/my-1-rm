@@ -13,12 +13,17 @@ const kgToLb = (kg: number): number => {
 }
 
 /**
- * Format weight value with no decimals and unit (showing both Kg and Lb)
+ * Format weight value with no decimals in the selected unit
+ * Note: value is always in kg internally, we convert for display
  */
-const formatWeight = (value: number): string => {
-  const kg = value.toFixed(0)
-  const lb = kgToLb(value).toFixed(0)
-  return `${kg} Kg (${lb} lbs)`
+const formatWeight = (valueInKg: number): string => {
+  if (store.unit === 'lbs') {
+    const lbs = kgToLb(valueInKg).toFixed(0)
+    return `${lbs} lbs`
+  } else {
+    const kg = valueInKg.toFixed(0)
+    return `${kg} kg`
+  }
 }
 
 /**

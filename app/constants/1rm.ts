@@ -29,5 +29,6 @@ export const REP_PERCENTAGES: Record<number, number> = {
 export const DEFAULT_SETTINGS = {
   weight: 80,
   reps: 10,
+  unit: 'kg' as const,
 } as const
 

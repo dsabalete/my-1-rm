@@ -25,7 +25,8 @@ export function useLocalStorage() {
           typeof parsed.weight === 'number' &&
           typeof parsed.reps === 'number' &&
           parsed.weight > 0 &&
-          parsed.reps > 0
+          parsed.reps > 0 &&
+          (parsed.unit === 'kg' || parsed.unit === 'lbs')
         ) {
           return parsed
         }
@@ -33,7 +34,7 @@ export function useLocalStorage() {
     } catch (error) {
       console.error('Failed to load settings from localStorage:', error)
     }
-    
+
     return { ...DEFAULT_SETTINGS }
   }
 

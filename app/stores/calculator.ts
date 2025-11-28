@@ -1,13 +1,16 @@
 import { defineStore } from 'pinia'
 import { calculate1RM } from '~/composables/use1RM'
+import type { WeightUnit } from '~/types'
 
 export interface CalculatorState {
   rm1: number
+  unit: WeightUnit
 }
 
 export const useCalculatorStore = defineStore('calculator', {
   state: (): CalculatorState => ({
     rm1: 0,
+    unit: 'kg',
   }),
 
   actions: {
@@ -21,10 +24,19 @@ export const useCalculatorStore = defineStore('calculator', {
     },
 
     /**
+     * Update the unit preference
+     * @param unit - The weight unit to use (kg or lbs)
+     */
+    updateUnit(unit: WeightUnit): void {
+      this.unit = unit
+    },
+
+    /**
      * Reset the calculator state
      */
     reset(): void {
       this.rm1 = 0
+      this.unit = 'kg'
     },
   },
 
