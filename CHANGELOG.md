@@ -1,3 +1,10 @@
+## [1.8.1](https://github.com/dsabalete/my-1-rm/compare/v1.8.0...v1.8.1) (2025-11-28)
+
+
+### Bug Fixes
+
+* update BuyMeACoffeeButton styling and image source ([d979351](https://github.com/dsabalete/my-1-rm/commit/d9793510a1132891688ad3ffae27a91451f55655))
+
 # [1.8.0](https://github.com/dsabalete/my-1-rm/compare/v1.7.0...v1.8.0) (2025-11-28)
 
 
