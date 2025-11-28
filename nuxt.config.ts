@@ -29,6 +29,7 @@ export default defineNuxtConfig({
     public: {
       googleTagManagerId: process.env.NUXT_PUBLIC_GOOGLE_TAG_MANAGER_ID || '',
       version: packageJson.version,
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://1rm.davidsabalete.com',
     },
   },
 })

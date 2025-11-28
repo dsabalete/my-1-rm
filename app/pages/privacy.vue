@@ -1,6 +1,31 @@
 <script setup lang="ts">
 // Privacy Policy page
 const lastUpdated = '2024-12-19'
+
+useSeoMeta({
+  title: 'Privacy Policy - 1RM Calculator',
+  description: 'Privacy Policy for My1RM Calculator. Learn how we collect, use, and protect your information when using our 1RM calculator service.',
+  ogTitle: 'Privacy Policy - 1RM Calculator',
+  ogDescription: 'Privacy Policy for My1RM Calculator. Learn how we collect, use, and protect your information.',
+  ogImage: '/img/icons/android-chrome-512x512.png',
+  ogType: 'website',
+  twitterCard: 'summary',
+  twitterTitle: 'Privacy Policy - 1RM Calculator',
+  twitterDescription: 'Privacy Policy for My1RM Calculator.',
+  robots: 'noindex, follow', // Privacy pages typically shouldn't be indexed
+})
+
+const route = useRoute()
+const siteUrl = useSiteUrl()
+
+useHead({
+  link: [
+    {
+      rel: 'canonical',
+      href: `${siteUrl}${route.path}`,
+    },
+  ],
+})
 </script>
 
 <template>

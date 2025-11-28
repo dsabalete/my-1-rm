@@ -1,5 +1,29 @@
 <script setup lang="ts">
 // About page explaining the 1RM calculator and Brzycki formula
+
+useSeoMeta({
+  title: 'About 1RM Calculator - How It Works | Brzycki Formula Explained',
+  description: 'Learn about the 1RM calculator and the Brzycki formula. Understand how to calculate your one repetition maximum safely without testing it directly, which can be risky for your central nervous system.',
+  ogTitle: 'About 1RM Calculator - How It Works',
+  ogDescription: 'Learn about the 1RM calculator and the Brzycki formula. Understand how to safely calculate your one repetition maximum.',
+  ogImage: '/img/icons/android-chrome-512x512.png',
+  ogType: 'website',
+  twitterCard: 'summary',
+  twitterTitle: 'About 1RM Calculator - How It Works',
+  twitterDescription: 'Learn about the 1RM calculator and the Brzycki formula.',
+})
+
+const route = useRoute()
+const siteUrl = useSiteUrl()
+
+useHead({
+  link: [
+    {
+      rel: 'canonical',
+      href: `${siteUrl}${route.path}`,
+    },
+  ],
+})
 </script>
 
 <template>

@@ -1,6 +1,31 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
+// SEO Meta Tags
+useSeoMeta({
+  title: 'Contact Us - 1RM Calculator Support',
+  description: 'Have questions, suggestions, or feedback about the 1RM calculator? Contact us through our contact form. We\'d love to hear from you!',
+  ogTitle: 'Contact Us - 1RM Calculator Support',
+  ogDescription: 'Have questions about the 1RM calculator? Contact us through our contact form.',
+  ogImage: '/img/icons/android-chrome-512x512.png',
+  ogType: 'website',
+  twitterCard: 'summary',
+  twitterTitle: 'Contact Us - 1RM Calculator Support',
+  twitterDescription: 'Have questions about the 1RM calculator? Contact us.',
+})
+
+const route = useRoute()
+const siteUrl = useSiteUrl()
+
+useHead({
+  link: [
+    {
+      rel: 'canonical',
+      href: `${siteUrl}${route.path}`,
+    },
+  ],
+})
+
 // Form fields
 const name = ref('')
 const email = ref('')
