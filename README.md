@@ -50,11 +50,14 @@ This project includes built-in support for Google Tag Manager (GTM). Google Anal
    cp env.example .env
    ```
 
-2. Add your Google Tag Manager Container ID to the `.env` file:
+2. Add your configuration to the `.env` file:
 
    ```env
    # Google Tag Manager Container ID
    NUXT_PUBLIC_GOOGLE_TAG_MANAGER_ID=GTM-XXXXXXX
+
+   # Site URL for SEO (sitemap, canonical URLs, etc.)
+   NUXT_PUBLIC_SITE_URL=https://yourdomain.com
    ```
 
 3. Configure GA4 in your GTM container:
@@ -64,6 +67,8 @@ This project includes built-in support for Google Tag Manager (GTM). Google Anal
    - Set up your GA4 Measurement ID in GTM
 
 4. Analytics will only be active in production mode to avoid tracking during development.
+
+5. Set your site URL for proper SEO configuration (sitemap, canonical URLs, structured data).
 
 ### Tracked Events
 
@@ -91,3 +96,49 @@ analytics.trackEvent({
   },
 });
 ```
+
+## SEO Features
+
+This application includes comprehensive SEO optimization:
+
+### Meta Tags
+
+- Unique, descriptive page titles and meta descriptions
+- Open Graph tags for social media sharing
+- Twitter Card support
+- Canonical URLs for all pages
+- Proper HTML lang attribute and viewport configuration
+
+### Structured Data (JSON-LD)
+
+- **Home Page**: WebApplication and WebPage schema
+- **About Page**: Article schema with educational content
+- **Contact Page**: ContactPage and Organization schema
+- **Privacy Page**: WebPage schema with last modified date
+
+### Sitemap
+
+- Automatically generated XML sitemap at `/sitemap.xml`
+- Includes all pages with proper priorities and change frequencies
+- Configured with XML schema validation
+
+### Robots.txt
+
+- Properly configured robots.txt file
+- References sitemap location for search engines
+
+### Semantic HTML
+
+- Uses semantic HTML5 elements (`<header>`, `<main>`, `<footer>`, `<article>`)
+- Improved accessibility and search engine understanding
+
+### Configuration
+
+The site URL is configured via the `NUXT_PUBLIC_SITE_URL` environment variable. This is used for:
+
+- Generating canonical URLs
+- Creating sitemap entries
+- Structured data URLs
+- Open Graph URLs
+
+All SEO features are automatically configured based on your environment variables.
