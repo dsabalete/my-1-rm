@@ -50,8 +50,6 @@ const messageError = computed(() => {
 })
 
 const handleSubmit = async (e: Event) => {
-  e.preventDefault()
-
   if (!isFormValid.value) {
     return
   }
@@ -136,8 +134,8 @@ const resetForm = () => {
       <strong>Error!</strong> There was a problem submitting your message. Please try again or contact us directly.
     </div>
 
-    <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" @submit="handleSubmit"
-      class="contact-form">
+    <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field"
+      @submit.prevent="handleSubmit" class="contact-form">
       <!-- Hidden field for Netlify form identification -->
       <input type="hidden" name="form-name" value="contact" />
 
