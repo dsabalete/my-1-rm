@@ -8,11 +8,11 @@ useHead({
   meta: [
     {
       name: 'description',
-      content: 'Free 1RM calculator using the Brzycki formula. Calculate your one repetition maximum (1RM) for any exercise safely. Supports kg and lbs. No registration required.',
+      content: 'Free 1RM calculator with multiple formulas (Brzycki, Epley, Lombardi, Mayhew, O\'Conner, Wathan). Calculate your one repetition maximum (1RM) for any exercise safely. Supports kg and lbs. No registration required.',
     },
     {
       name: 'keywords',
-      content: '1RM calculator, one rep max calculator, Brzycki formula, max weight calculator, strength training calculator, 1RM test, weightlifting calculator',
+      content: '1RM calculator, one rep max calculator, Brzycki formula, Epley formula, Lombardi formula, max weight calculator, strength training calculator, 1RM test, weightlifting calculator, multiple 1RM formulas',
     },
     // Open Graph
     {
@@ -21,7 +21,7 @@ useHead({
     },
     {
       property: 'og:description',
-      content: 'Free 1RM calculator using the Brzycki formula. Calculate your one repetition maximum for any exercise safely.',
+      content: 'Free 1RM calculator with multiple formulas. Calculate your one repetition maximum for any exercise safely.',
     },
     {
       property: 'og:type',
@@ -46,7 +46,7 @@ useHead({
     },
     {
       name: 'twitter:description',
-      content: 'Free 1RM calculator using the Brzycki formula. Calculate your one repetition maximum for any exercise safely.',
+      content: 'Free 1RM calculator with multiple formulas. Calculate your one repetition maximum for any exercise safely.',
     },
   ],
   link: [
@@ -66,7 +66,7 @@ useHead({
         '@context': 'https://schema.org',
         '@type': 'WebApplication',
         name: '1RM Calculator',
-        description: 'Free 1RM calculator using the Brzycki formula. Calculate your one repetition maximum for any exercise safely.',
+        description: 'Free 1RM calculator with multiple formulas (Brzycki, Epley, Lombardi, Mayhew, O\'Conner, Wathan). Calculate your one repetition maximum for any exercise safely.',
         url: siteUrl,
         applicationCategory: 'HealthApplication',
         operatingSystem: 'Web',
@@ -76,7 +76,7 @@ useHead({
           priceCurrency: 'USD',
         },
         featureList: [
-          'Calculate 1RM using Brzycki formula',
+          'Calculate 1RM using multiple formulas (Brzycki, Epley, Lombardi, Mayhew, O\'Conner, Wathan)',
           'Support for kg and lbs units',
           'Calculate rep maxes for multiple rep ranges',
           'Save default settings locally',
@@ -89,7 +89,7 @@ useHead({
         '@context': 'https://schema.org',
         '@type': 'WebPage',
         name: '1RM Calculator',
-        description: 'Free 1RM calculator using the Brzycki formula. Calculate your one repetition maximum for any exercise safely.',
+        description: 'Free 1RM calculator with multiple formulas (Brzycki, Epley, Lombardi, Mayhew, O\'Conner, Wathan). Calculate your one repetition maximum for any exercise safely.',
         url: siteUrl,
         mainEntity: {
           '@type': 'SoftwareApplication',

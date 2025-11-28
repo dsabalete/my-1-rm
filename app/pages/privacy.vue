@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // Privacy Policy page
-const lastUpdated = '2024-12-19'
+const lastUpdated = '2025-11-28'
 const config = useRuntimeConfig()
 const siteUrl = config.public.siteUrl
 

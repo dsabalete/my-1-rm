@@ -1,10 +1,55 @@
 /**
  * 1RM Calculation Constants
- * Based on Brzycki formula: 1RM = weight / (1.0278 - (0.0278 * reps))
  */
 
-export const BRZYCKI_COEFFICIENT = 1.0278
-export const BRZYCKI_MULTIPLIER = 0.0278
+import type { Formula, FormulaType } from '~/types'
+
+/**
+ * Available 1RM calculation formulas
+ */
+export const FORMULAS: Record<FormulaType, Formula> = {
+  brzycki: {
+    id: 'brzycki',
+    name: 'Brzycki',
+    description: 'Most accurate for reps ≤ 10. Formula: weight / (1.0278 - 0.0278 × reps)',
+    formula: 'weight / (1.0278 - 0.0278 × reps)',
+  },
+  epley: {
+    id: 'epley',
+    name: 'Epley',
+    description: 'Popular and widely used. Formula: weight × (1 + reps / 30)',
+    formula: 'weight × (1 + reps / 30)',
+  },
+  lombardi: {
+    id: 'lombardi',
+    name: 'Lombardi',
+    description: 'Good for powerlifting. Formula: weight × reps^0.10',
+    formula: 'weight × reps^0.10',
+  },
+  mayhew: {
+    id: 'mayhew',
+    name: 'Mayhew et al.',
+    description: 'Accurate for higher rep ranges. Formula: weight × (100 / (52.2 + 41.9 × e^(-0.055 × reps)))',
+    formula: 'weight × (100 / (52.2 + 41.9 × e^(-0.055 × reps)))',
+  },
+  oconer: {
+    id: 'oconer',
+    name: "O'Conner et al.",
+    description: 'Good for general strength training. Formula: weight × (1 + reps / 40)',
+    formula: 'weight × (1 + reps / 40)',
+  },
+  wathan: {
+    id: 'wathan',
+    name: 'Wathan',
+    description: 'Accurate across various rep ranges. Formula: weight × (100 / (48.8 + 53.8 × e^(-0.075 × reps)))',
+    formula: 'weight × (100 / (48.8 + 53.8 × e^(-0.075 × reps)))',
+  },
+}
+
+/**
+ * Default formula
+ */
+export const DEFAULT_FORMULA: FormulaType = 'brzycki'
 
 /**
  * Percentage multipliers for different rep maxes
@@ -30,5 +75,13 @@ export const DEFAULT_SETTINGS = {
   weight: 80,
   reps: 10,
   unit: 'kg' as const,
+  formula: DEFAULT_FORMULA,
 } as const
+
+/**
+ * Get all available formulas as an array
+ */
+export function getAllFormulas(): Formula[] {
+  return Object.values(FORMULAS)
+}
 

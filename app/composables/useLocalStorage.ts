@@ -1,5 +1,5 @@
-import { DEFAULT_SETTINGS } from '~/constants/1rm'
-import type { CalculatorSettings } from '~/types'
+import { DEFAULT_SETTINGS, FORMULAS } from '~/constants/1rm'
+import type { CalculatorSettings, FormulaType } from '~/types'
 
 const STORAGE_KEY = 'defaultState'
 
@@ -21,14 +21,25 @@ export function useLocalStorage() {
       if (stored) {
         const parsed = JSON.parse(stored) as CalculatorSettings
         // Validate loaded settings
+        const isValidUnit = parsed.unit === 'kg' || parsed.unit === 'lbs'
+        const isValidFormula = !parsed.formula || parsed.formula in FORMULAS
+
         if (
           typeof parsed.weight === 'number' &&
           typeof parsed.reps === 'number' &&
           parsed.weight > 0 &&
           parsed.reps > 0 &&
-          (parsed.unit === 'kg' || parsed.unit === 'lbs')
+          isValidUnit &&
+          isValidFormula
         ) {
-          return parsed
+          return {
+            ...DEFAULT_SETTINGS,
+            ...parsed,
+            // Ensure formula is set, default if missing or invalid
+            formula: (parsed.formula && parsed.formula in FORMULAS)
+              ? parsed.formula
+              : DEFAULT_SETTINGS.formula,
+          }
         }
       }
     } catch (error) {
