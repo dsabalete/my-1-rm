@@ -13,7 +13,10 @@ const version = config.public.version
       <slot />
     </main>
     <footer>
-      <p class="version-hint">Version: {{ version }}</p>
+      <div class="footer-content">
+        <BuyMeACoffeeButton />
+        <div class="version-hint">Version: {{ version }}</div>
+      </div>
     </footer>
   </div>
 </template>
@@ -32,9 +35,28 @@ const version = config.public.version
     margin: 2rem 0 0;
   }
 
+  footer {
+    margin-top: 3rem;
+    padding: 2rem 0;
+    border-top: 1px solid #e9ecef;
+  }
+
+  .footer-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+
+  .buy-me-coffee {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .version-hint {
     text-align: center;
-    margin: 2rem 0;
+    margin: 0;
     font-size: 0.875rem;
     color: #6c757d;
   }
