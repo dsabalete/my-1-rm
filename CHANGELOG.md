@@ -1,3 +1,19 @@
+# [1.3.0](https://github.com/dsabalete/my-1-rm/compare/v1.2.0...v1.3.0) (2025-11-28)
+
+
+### Bug Fixes
+
+* update last alpine version ([6782c0f](https://github.com/dsabalete/my-1-rm/commit/6782c0f1f9f664a16d31f5a67aac84448440a463))
+
+
+### Features
+
+* add ga-gtm tracking code ([f77442d](https://github.com/dsabalete/my-1-rm/commit/f77442ded394908f6168910250a383633c5211b8))
+* add weight unit selection and conversion to calculator component ([213b849](https://github.com/dsabalete/my-1-rm/commit/213b8498e342ca0c97c18ce0be682e1662878afc))
+* migrate to nuxt 4 ([bb235bb](https://github.com/dsabalete/my-1-rm/commit/bb235bbe6dda49990cb8ec6eeaca61f9f0d244b2))
+* migrate to nuxt 4 ([be8eea1](https://github.com/dsabalete/my-1-rm/commit/be8eea1907ccc6e6cd62584cbb48c01c09f98432))
+* update version on each build ([eec9ed2](https://github.com/dsabalete/my-1-rm/commit/eec9ed240b1bbded54ec016d0ec82c87d334853f))
+
 # [1.3.0](https://github.com/dsabalete/my-1-rm/compare/v1.2.0...v1.3.0) (2025-11-27)
 
 
