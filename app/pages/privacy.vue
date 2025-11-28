@@ -1,10 +1,70 @@
 <script setup lang="ts">
 // Privacy Policy page
 const lastUpdated = '2024-12-19'
+const config = useRuntimeConfig()
+const siteUrl = config.public.siteUrl
+
+useHead({
+  title: 'Privacy Policy - 1RM Calculator | My1RM',
+  meta: [
+    {
+      name: 'description',
+      content: 'Privacy Policy for My1RM Calculator. Learn how we collect, use, and protect your information when using our 1RM calculator.',
+    },
+    {
+      name: 'keywords',
+      content: 'privacy policy, data protection, 1RM calculator privacy, user data',
+    },
+    {
+      name: 'robots',
+      content: 'noindex, follow',
+    },
+    // Open Graph
+    {
+      property: 'og:title',
+      content: 'Privacy Policy - 1RM Calculator',
+    },
+    {
+      property: 'og:description',
+      content: 'Privacy Policy for My1RM Calculator. Learn how we collect, use, and protect your information.',
+    },
+    {
+      property: 'og:type',
+      content: 'website',
+    },
+    {
+      property: 'og:url',
+      content: `${siteUrl}/privacy`,
+    },
+  ],
+  link: [
+    {
+      rel: 'canonical',
+      href: `${siteUrl}/privacy`,
+    },
+  ],
+})
+
+// Structured data (JSON-LD)
+useHead({
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        name: 'Privacy Policy',
+        description: 'Privacy Policy for My1RM Calculator',
+        url: `${siteUrl}/privacy`,
+        dateModified: lastUpdated,
+      }),
+    },
+  ],
+})
 </script>
 
 <template>
-  <div class="privacy-page">
+  <article class="privacy-page">
     <h1>Privacy Policy</h1>
     <p class="last-updated">Last updated: {{ lastUpdated }}</p>
 
@@ -148,7 +208,7 @@ const lastUpdated = '2024-12-19'
           rel="noopener noreferrer">my website</a>.
       </p>
     </section>
-  </div>
+  </article>
 </template>
 
 <style lang="css" scoped>
