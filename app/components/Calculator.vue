@@ -1,8 +1,4 @@
 <script setup lang="ts">
-import { ref, onMounted, watch } from 'vue'
-import { useCalculatorStore } from '~/stores/calculator'
-import { useLocalStorage } from '~/composables/useLocalStorage'
-import { useAnalytics } from '~/composables/useAnalytics'
 import { DEFAULT_SETTINGS, getAllFormulas } from '~/constants/1rm'
 import type { FormulaType } from '~/types'
 

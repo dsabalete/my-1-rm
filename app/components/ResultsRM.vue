@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-import { useCalculatorStore } from '~/stores/calculator'
 import { REP_PERCENTAGES } from '~/constants/1rm'
 
 const store = useCalculatorStore()

@@ -1,5 +1,5 @@
 import { DEFAULT_SETTINGS, FORMULAS } from '~/constants/1rm'
-import type { CalculatorSettings, FormulaType } from '~/types'
+import type { CalculatorSettings } from '~/types'
 
 const STORAGE_KEY = 'defaultState'
 

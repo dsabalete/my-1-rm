@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-
 const config = useRuntimeConfig()
 const siteUrl = config.public.siteUrl
 
