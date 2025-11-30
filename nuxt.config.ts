@@ -43,6 +43,9 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     // Private keys (only available on server-side)
+    resendApiKey: process.env.RESEND_API_KEY || '',
+    resendFromEmail: process.env.RESEND_FROM_EMAIL || '',
+    contactRecipientEmail: process.env.CONTACT_RECIPIENT_EMAIL || 'info@davidsabalete.com',
     // Public keys (exposed to client-side)
     public: {
       googleTagManagerId: process.env.NUXT_PUBLIC_GOOGLE_TAG_MANAGER_ID || '',
