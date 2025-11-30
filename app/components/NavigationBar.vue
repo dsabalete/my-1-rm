@@ -13,34 +13,36 @@ const closeMenu = () => {
 </script>
 
 <template>
-  <nav class="navbar">
-    <!-- Title - always visible -->
-    <NuxtLink to="/" class="navbar-title" @click="closeMenu">My1RM Calculator</NuxtLink>
+  <header class="navigation-bar">
+    <nav class="navbar">
+      <!-- Title - always visible -->
+      <NuxtLink to="/" class="navbar-title" @click="closeMenu">My1RM Calculator</NuxtLink>
 
-    <!-- Desktop Navigation - visible on larger screens -->
-    <div class="navbar-links desktop-only">
-      <NuxtLink to="/about" class="navbar-item">About</NuxtLink>
-      <NuxtLink to="/contact" class="navbar-item">Contact</NuxtLink>
-      <NuxtLink to="/privacy" class="navbar-item">Privacy Policy</NuxtLink>
-    </div>
-
-    <!-- Burger Menu Button - visible on mobile -->
-    <button class="burger-button mobile-only" @click="toggleMenu" :aria-expanded="isMenuOpen"
-      aria-label="Toggle navigation menu">
-      <span class="burger-line" :class="{ 'open': isMenuOpen }"></span>
-      <span class="burger-line" :class="{ 'open': isMenuOpen }"></span>
-      <span class="burger-line" :class="{ 'open': isMenuOpen }"></span>
-    </button>
-
-    <!-- Mobile Menu - slides in from the side -->
-    <div class="mobile-menu" :class="{ 'open': isMenuOpen }" @click="closeMenu">
-      <div class="mobile-menu-content" @click.stop>
-        <NuxtLink to="/about" class="mobile-menu-item" @click="closeMenu">About</NuxtLink>
-        <NuxtLink to="/contact" class="mobile-menu-item" @click="closeMenu">Contact</NuxtLink>
-        <NuxtLink to="/privacy" class="mobile-menu-item" @click="closeMenu">Privacy Policy</NuxtLink>
+      <!-- Desktop Navigation - visible on larger screens -->
+      <div class="navbar-links desktop-only">
+        <NuxtLink to="/about" class="navbar-item">About</NuxtLink>
+        <NuxtLink to="/contact" class="navbar-item">Contact</NuxtLink>
+        <NuxtLink to="/privacy" class="navbar-item">Privacy Policy</NuxtLink>
       </div>
-    </div>
-  </nav>
+
+      <!-- Burger Menu Button - visible on mobile -->
+      <button class="burger-button mobile-only" @click="toggleMenu" :aria-expanded="isMenuOpen"
+        aria-label="Toggle navigation menu">
+        <span class="burger-line" :class="{ 'open': isMenuOpen }"></span>
+        <span class="burger-line" :class="{ 'open': isMenuOpen }"></span>
+        <span class="burger-line" :class="{ 'open': isMenuOpen }"></span>
+      </button>
+
+      <!-- Mobile Menu - slides in from the side -->
+      <div class="mobile-menu" :class="{ 'open': isMenuOpen }" @click="closeMenu">
+        <div class="mobile-menu-content" @click.stop>
+          <NuxtLink to="/about" class="mobile-menu-item" @click="closeMenu">About</NuxtLink>
+          <NuxtLink to="/contact" class="mobile-menu-item" @click="closeMenu">Contact</NuxtLink>
+          <NuxtLink to="/privacy" class="mobile-menu-item" @click="closeMenu">Privacy Policy</NuxtLink>
+        </div>
+      </div>
+    </nav>
+  </header>
 </template>
 
 <style lang="css" scoped>

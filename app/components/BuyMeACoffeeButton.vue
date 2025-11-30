@@ -6,3 +6,11 @@
     </a>
   </div>
 </template>
+
+<style lang="css" scoped>
+.buy-me-coffee {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+</style>
