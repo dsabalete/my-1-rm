@@ -1,3 +1,10 @@
+# [1.11.0](https://github.com/dsabalete/my-1-rm/compare/v1.10.0...v1.11.0) (2025-11-30)
+
+
+### Features
+
+* implement contact form functionality with email service integration ([e01a527](https://github.com/dsabalete/my-1-rm/commit/e01a5278213ba4a5e21885dd68d878727e071b04))
+
 # [1.10.0](https://github.com/dsabalete/my-1-rm/compare/v1.9.0...v1.10.0) (2025-11-28)
 
 
