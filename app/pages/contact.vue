@@ -8,8 +8,10 @@ const email = ref('')
 const subject = ref('')
 const message = ref('')
 
-// Email recipient - you can change this to your actual email
-const recipientEmail = 'info@davidsabalete.com' // TODO: Replace with your actual email
+// Form state
+const isSubmitting = ref(false)
+const submitSuccess = ref(false)
+const submitError = ref<string | null>(null)
 
 useHead({
   title: 'Contact Us - 1RM Calculator Support | My1RM',
@@ -75,15 +77,15 @@ useHead({
         mainEntity: {
           '@type': 'Organization',
           name: 'My1RM Calculator',
-          email: recipientEmail,
+          email: 'info@davidsabalete.com',
         },
       }),
     },
   ],
 })
 
-// Function to create mailto link with all form values
-const handleSubmit = (event: Event) => {
+// Function to submit contact form
+const handleSubmit = async (event: Event) => {
   event.preventDefault()
 
   // Validate form
@@ -93,17 +95,44 @@ const handleSubmit = (event: Event) => {
     return
   }
 
-  // Encode values for mailto URL
-  const encodedSubject = encodeURIComponent(subject.value)
-  const encodedBody = encodeURIComponent(
-    `Name: ${name.value}\nEmail: ${email.value}\n\nMessage:\n${message.value}`
-  )
+  // Reset state
+  isSubmitting.value = true
+  submitSuccess.value = false
+  submitError.value = null
 
-  // Create mailto link
-  const mailtoLink = `mailto:${recipientEmail}?subject=${encodedSubject}&body=${encodedBody}`
+  try {
+    const response = await $fetch('/api/contact', {
+      method: 'POST',
+      body: {
+        name: name.value,
+        email: email.value,
+        subject: subject.value,
+        message: message.value,
+      },
+    })
 
-  // Open email client
-  window.location.href = mailtoLink
+    // Success
+    submitSuccess.value = true
+    submitError.value = null
+
+    // Reset form
+    name.value = ''
+    email.value = ''
+    subject.value = ''
+    message.value = ''
+
+    // Scroll to top to show success message
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  } catch (error: any) {
+    // Handle error
+    submitSuccess.value = false
+    submitError.value = error.data?.message || error.message || 'Failed to send message. Please try again later.'
+    
+    // Scroll to top to show error message
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  } finally {
+    isSubmitting.value = false
+  }
 }
 </script>
 
@@ -111,9 +140,18 @@ const handleSubmit = (event: Event) => {
   <div class="contact-page">
     <h1>Contact Us</h1>
     <p class="intro-text">
-      Have a question, suggestion, or feedback? We'd love to hear from you! Fill out the form below and it will open
-      your email client with all the information pre-filled.
+      Have a question, suggestion, or feedback? We'd love to hear from you! Fill out the form below and we'll get back to you as soon as possible.
     </p>
+
+    <!-- Success Message -->
+    <div v-if="submitSuccess" class="alert alert-success" role="alert">
+      <strong>Success!</strong> Your message has been sent successfully. We'll get back to you soon!
+    </div>
+
+    <!-- Error Message -->
+    <div v-if="submitError" class="alert alert-error" role="alert">
+      <strong>Error:</strong> {{ submitError }}
+    </div>
 
     <form @submit.prevent="handleSubmit" class="contact-form">
       <div class="form-group">
@@ -144,18 +182,13 @@ const handleSubmit = (event: Event) => {
       </div>
 
       <div class="form-actions">
-        <button type="submit" class="btn btn-primary">
-          Open Email Client
+        <button type="submit" class="btn btn-primary" :disabled="isSubmitting">
+          <span v-if="isSubmitting">Sending...</span>
+          <span v-else>Send Message</span>
         </button>
       </div>
     </form>
 
-    <div class="contact-info">
-      <p class="note">
-        <strong>Note:</strong> Clicking "Open Email Client" will open your default email application with all fields
-        pre-filled. You can review and send the email from there.
-      </p>
-    </div>
   </div>
 </template>
 
@@ -252,29 +285,41 @@ const handleSubmit = (event: Event) => {
         border-color: #007bff;
         color: white;
 
-        &:hover {
+        &:hover:not(:disabled) {
           background-color: #0056b3;
           border-color: #0056b3;
         }
 
-        &:active {
+        &:active:not(:disabled) {
           background-color: #004085;
           border-color: #004085;
+        }
+
+        &:disabled {
+          opacity: 0.6;
+          cursor: not-allowed;
         }
       }
     }
   }
 
-  .contact-info {
-    margin-top: 30px;
-    padding-top: 20px;
-    border-top: 1px solid #e9ecef;
+  .alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+  }
 
-    .note {
-      color: #6c757d;
-      font-size: 0.9rem;
-      line-height: 1.5;
-    }
+  .alert-success {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+  }
+
+  .alert-error {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
   }
 }
 </style>
