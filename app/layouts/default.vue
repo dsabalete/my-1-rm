@@ -1,16 +1,4 @@
 <script setup lang="ts">
-const config = useRuntimeConfig()
-const version = config.public.version
-
-useHead({
-  script: [
-    {
-      src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4974553432355085',
-      async: true,
-      crossorigin: 'anonymous'
-    },
-  ],
-})
 </script>
 
 <template>

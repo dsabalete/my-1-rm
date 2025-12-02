@@ -34,6 +34,15 @@ export default defineNuxtConfig({
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
         { rel: 'canonical', href: 'https://1rm.davidsabalete.com' },
       ],
+      script: [
+        {
+          src: 'https://quge5.com/88/tag.min.js',
+          async: true,
+          crossorigin: 'anonymous',
+          'data-zone': '189840',
+          'data-cfasync': 'false'
+        }
+      ],
       meta: [
         { name: 'format-detection', content: 'telephone=no' },
         { name: 'theme-color', content: '#007bff' },
