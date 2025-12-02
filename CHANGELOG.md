@@ -1,3 +1,10 @@
+# [1.12.0](https://github.com/dsabalete/my-1-rm/compare/v1.11.0...v1.12.0) (2025-12-02)
+
+
+### Features
+
+* add monetag script ([59970a3](https://github.com/dsabalete/my-1-rm/commit/59970a34ebcfa1b9498c0a0f60c547c732422df2))
+
 # [1.11.0](https://github.com/dsabalete/my-1-rm/compare/v1.10.0...v1.11.0) (2025-11-30)
 
 
