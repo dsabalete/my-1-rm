@@ -1,3 +1,10 @@
+# [1.13.0](https://github.com/dsabalete/my-1-rm/compare/v1.12.0...v1.13.0) (2025-12-02)
+
+
+### Features
+
+* Replace Google AdSense script with new ad script and update service worker zone ID. ([ba74789](https://github.com/dsabalete/my-1-rm/commit/ba747899729d92b432d6fbceae6da4b9d76fad53))
+
 # [1.12.0](https://github.com/dsabalete/my-1-rm/compare/v1.11.0...v1.12.0) (2025-12-02)
 
 
