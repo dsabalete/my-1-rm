@@ -1,3 +1,10 @@
+# [1.14.0](https://github.com/dsabalete/my-1-rm/compare/v1.13.0...v1.14.0) (2026-08-07)
+
+
+### Features
+
+* Add .nvmrc for Node.js version 24 and update package.json dependencies ([fca7a0e](https://github.com/dsabalete/my-1-rm/commit/fca7a0e1098f003d1e581e4c48a4c61231552eb4))
+
 # [1.13.0](https://github.com/dsabalete/my-1-rm/compare/v1.12.0...v1.13.0) (2025-12-02)
 
 
