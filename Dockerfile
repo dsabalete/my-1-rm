@@ -1,6 +1,6 @@
 # Use a specific Node.js runtime as a parent image
-# Using lts-alpine ensures we get the latest LTS with security patches
-FROM node:lts-alpine
+# Using 24-alpine to pin Node.js 24 LTS with security patches
+FROM node:24-alpine
 
 LABEL org.opencontainers.image.description="Find your 1RM for any lift using the Brzycki formula"
 
