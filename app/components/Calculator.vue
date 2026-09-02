@@ -13,6 +13,18 @@ const reps = ref<number>(DEFAULT_SETTINGS.reps)
 const unit = ref<'kg' | 'lbs'>(DEFAULT_SETTINGS.unit)
 const formula = ref<FormulaType>(DEFAULT_SETTINGS.formula)
 
+const weightError = computed(() => {
+  if (weight.value <= 0) return 'Weight must be greater than 0'
+  if (weight.value > 1000) return 'Weight seems too high'
+  return ''
+})
+
+const repsError = computed(() => {
+  if (reps.value <= 0) return 'Reps must be at least 1'
+  if (reps.value > 100) return 'Reps seem too high'
+  return ''
+})
+
 const formulas = getAllFormulas()
 
 /**
@@ -30,6 +42,8 @@ const getWeightInKg = (): number => {
 }
 
 const calculate = (): void => {
+  if (weightError.value || repsError.value) return
+
   const weightInKg = getWeightInKg()
   store.updateFormula(formula.value)
   store.update1RM(weightInKg, reps.value, formula.value)
@@ -86,14 +100,17 @@ onMounted(() => {
           </option>
         </select>
       </div>
-      <div class="form-group col-sm">
-        <label for="weight">Weight ({{ unit }})</label>
-        <input type="number" id="weight" class="form-control" v-model="weight" :placeholder="`Weight in ${unit}`">
-      </div>
-      <div class="form-group col-sm">
-        <label for="reps">Reps</label>
-        <input type="number" id="reps" class="form-control" v-model="reps" placeholder="Max reps">
-      </div>
+       <div class="form-group col-sm">
+         <label for="weight">Weight ({{ unit }})</label>
+         <input type="number" id="weight" class="form-control" v-model="weight" :placeholder="`Weight in ${unit}`" :class="{ 'is-invalid': weightError }">
+         <div class="invalid-feedback">{{ weightError }}</div>
+       </div>
+       <div class="form-group col-sm">
+         <label for="reps">Reps</label>
+         <input type="number" id="reps" class="form-control" v-model="reps" placeholder="Max reps" :class="{ 'is-invalid': repsError }">
+         <div class="invalid-feedback">{{ repsError }}</div>
+       </div>
+
       <div class="form-group col-sm">
         <label for="unit">Unit</label>
         <select id="unit" class="form-control" v-model="unit">
