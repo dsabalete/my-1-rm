@@ -1,3 +1,21 @@
+# [1.16.0](https://github.com/dsabalete/my-1-rm/compare/v1.15.0...v1.16.0) (2026-09-02)
+
+
+### Features
+
+* Add additional percentage multipliers for 1RM calculations ([ea25195](https://github.com/dsabalete/my-1-rm/commit/ea25195792410bf5a4aa99e43a34419e977b84cb))
+* Add validation and error handling for weight and reps inputs in calculator ([2a19824](https://github.com/dsabalete/my-1-rm/commit/2a198242ed821df3a8836ee1ed5187160a831164))
+* Enhance history item display with exercise names and improve results layout ([94a641f](https://github.com/dsabalete/my-1-rm/commit/94a641f09ea1d86c6c146ddccd6080b1a693cb1d))
+* enhance usePageSeo composable with image handling and Open Graph metadata ([873ab35](https://github.com/dsabalete/my-1-rm/commit/873ab357fc036f73c91dc70d39be914d4874e318))
+* Implement animated 1RM value and update weight calculation logic ([c9af2e2](https://github.com/dsabalete/my-1-rm/commit/c9af2e2e2025a42d7a94f933b105d4132627faa4))
+* implement usePageSeo composable for SEO management across pages ([f02db2f](https://github.com/dsabalete/my-1-rm/commit/f02db2f9ed22e7e4ab666a960663e1d30b5b4782))
+* Improve accessibility for weight and reps input fields with ARIA attributes ([492b37a](https://github.com/dsabalete/my-1-rm/commit/492b37a959586dd043f329c7bfbb4497592b36fb))
+* **pwa:** add PWA support with auto-update and manifest configuration ([34869ce](https://github.com/dsabalete/my-1-rm/commit/34869cead17236ab0357a2938c8d664c4cbd7ba4))
+* Refactor calculate1RM function to use formula implementations object ([949c3b3](https://github.com/dsabalete/my-1-rm/commit/949c3b3513a4c610bd413f948aec59446e746b8d))
+* Refactor weight conversion logic to use a constant for conversion factor ([5c645d8](https://github.com/dsabalete/my-1-rm/commit/5c645d8d4c517ef99a9b0021008177e426dfc9b0))
+* **tests:** add vitest for unit testing and implement tests for calculate1RM function ([98763f7](https://github.com/dsabalete/my-1-rm/commit/98763f7cda7bd367d45fa67b0398adb6d7b216d4))
+* Update type import for WeightUnit in Calculator component ([0ac26b6](https://github.com/dsabalete/my-1-rm/commit/0ac26b6658b6879a331033874ba1c4e47fd38946))
+
 # [1.15.0](https://github.com/dsabalete/my-1-rm/compare/v1.14.0...v1.15.0) (2026-09-02)
 
 
