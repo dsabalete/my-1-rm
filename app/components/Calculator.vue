@@ -100,16 +100,17 @@ onMounted(() => {
           </option>
         </select>
       </div>
-       <div class="form-group col-sm">
-         <label for="weight">Weight ({{ unit }})</label>
-         <input type="number" id="weight" class="form-control" v-model="weight" :placeholder="`Weight in ${unit}`" :class="{ 'is-invalid': weightError }">
-         <div class="invalid-feedback">{{ weightError }}</div>
-       </div>
-       <div class="form-group col-sm">
-         <label for="reps">Reps</label>
-         <input type="number" id="reps" class="form-control" v-model="reps" placeholder="Max reps" :class="{ 'is-invalid': repsError }">
-         <div class="invalid-feedback">{{ repsError }}</div>
-       </div>
+        <div class="form-group col-sm">
+          <label for="weight">Weight ({{ unit }})</label>
+          <input type="number" id="weight" class="form-control" v-model="weight" :placeholder="`Weight in ${unit}…`" :class="{ 'is-invalid': weightError }" :aria-invalid="!!weightError" aria-describedby="weight-error">
+          <div id="weight-error" class="invalid-feedback" aria-live="polite">{{ weightError }}</div>
+        </div>
+        <div class="form-group col-sm">
+          <label for="reps">Reps</label>
+          <input type="number" id="reps" class="form-control" v-model="reps" placeholder="Max reps…" :class="{ 'is-invalid': repsError }" :aria-invalid="!!repsError" aria-describedby="reps-error">
+          <div id="reps-error" class="invalid-feedback" aria-live="polite">{{ repsError }}</div>
+        </div>
+
 
       <div class="form-group col-sm">
         <label for="unit">Unit</label>
