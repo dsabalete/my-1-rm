@@ -1,7 +1,16 @@
 <script setup lang="ts">
 import { REP_PERCENTAGES } from '~/constants/1rm'
+import { useTransition } from '@vueuse/core'
 
 const store = useCalculatorStore()
+
+/**
+ * Animated value for 1RM
+ */
+const animatedRM1 = useTransition(computed(() => store.rm1), {
+  duration: 500,
+  easing: 'easeOutExpo',
+})
 
 /**
  * Convert kilograms to pounds
@@ -41,13 +50,13 @@ const repRanges = computed(() => {
  * Calculate weight for a specific rep range
  */
 const calculateRepWeight = (percentage: number): number => {
-  return store.rm1 * percentage
+  return animatedRM1.value * percentage
 }
 </script>
 
 <template>
   <div v-if="store.hasValidRM" class="result">
-    <h2>{{ store.selectedExerciseName }} 1RM: {{ formatWeight(store.rm1) }}</h2>
+    <h2>{{ store.selectedExerciseName }} 1RM: {{ formatWeight(animatedRM1) }}</h2>
     <div v-for="range in repRanges" :key="range.reps" class="rep-result">
       <h4>{{ range.reps }}RM: {{ formatWeight(calculateRepWeight(range.percentage)) }}</h4>
     </div>
