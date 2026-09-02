@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#007bff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0056b3;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  
+  <!-- Subtle pattern -->
+  <circle cx="100" cy="100" r="200" fill="rgba(255,255,255,0.03)"/>
+  <circle cx="1100" cy="530" r="300" fill="rgba(255,255,255,0.03)"/>
+  
+  <!-- Weight plate icon -->
+  <g transform="translate(600, 200)" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="8" stroke-linecap="round">
+    <!-- Barbell bar -->
+    <line x1="-180" y1="0" x2="180" y2="0" stroke-width="12"/>
+    <!-- Left plate -->
+    <rect x="-200" y="-50" width="40" height="100" rx="8" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.9)"/>
+    <!-- Right plate -->
+    <rect x="160" y="-50" width="40" height="100" rx="8" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.9)"/>
+    <!-- Inner plates -->
+    <rect x="-140" y="-35" width="30" height="70" rx="6" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.7)"/>
+    <rect x="110" y="-35" width="30" height="70" rx="6" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.7)"/>
+  </g>
+  
+  <!-- App name -->
+  <text x="600" y="340" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="bold" font-size="72" fill="white">My1RM</text>
+  
+  <!-- Tagline -->
+  <text x="600" y="400" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="400" font-size="32" fill="rgba(255,255,255,0.9)">Calculate Your One Repetition Maximum</text>
+  
+  <!-- Subtitle -->
+  <text x="600" y="450" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="300" font-size="24" fill="rgba(255,255,255,0.7)">6 Formulas | kg &amp; lbs | Free Calculator</text>
+  
+  <!-- URL -->
+  <text x="600" y="560" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="400" font-size="20" fill="rgba(255,255,255,0.5)">1rm.davidsabalete.com</text>
+</svg>
