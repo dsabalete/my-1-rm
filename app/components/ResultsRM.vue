@@ -56,9 +56,12 @@ const calculateRepWeight = (percentage: number): number => {
 
 <template>
   <div v-if="store.hasValidRM" class="result">
-    <h2>{{ store.selectedExerciseName }} 1RM: {{ formatWeight(animatedRM1) }}</h2>
-    <div v-for="range in repRanges" :key="range.reps" class="rep-result">
-      <h4>{{ range.reps }}RM: {{ formatWeight(calculateRepWeight(range.percentage)) }}</h4>
+    <h2 class="text-center">{{ store.selectedExerciseName }} 1RM: {{ formatWeight(animatedRM1) }}</h2>
+    <div class="rep-grid">
+      <div v-for="range in repRanges" :key="range.reps" class="rep-card">
+        <span class="rep-label">{{ range.reps }}RM</span>
+        <span class="rep-value">{{ formatWeight(calculateRepWeight(range.percentage)) }}</span>
+      </div>
     </div>
   </div>
 </template>
@@ -69,15 +72,42 @@ const calculateRepWeight = (percentage: number): number => {
 
   h2 {
     color: #007bff;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
   }
 
-  .rep-result {
-    margin-bottom: 0.75rem;
+  .rep-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+  }
 
-    h4 {
-      margin: 0.5rem 0;
-      font-weight: 500;
+  .rep-card {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .rep-label {
+      display: block;
+      font-size: 0.875rem;
+      color: #6c757d;
+      margin-bottom: 0.25rem;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .rep-value {
+      display: block;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #212529;
     }
   }
 }

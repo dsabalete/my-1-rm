@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { HistoryEntry } from '~/types'
+import { COMMON_EXERCISES } from '~/stores/calculator'
 
 interface Props {
   entry: HistoryEntry
@@ -13,13 +14,18 @@ const emit = defineEmits<{
 const formatDate = (dateStr: string) => {
   return new Date(dateStr).toLocaleDateString()
 }
+
+const getExerciseName = (id: string) => {
+  const exercise = COMMON_EXERCISES.find(e => e.id === id)
+  return exercise ? exercise.name : 'Custom'
+}
 </script>
 
 <template>
   <div class="history-item d-flex justify-content-between align-items-center p-2 border-bottom">
     <div>
       <div class="fw-bold">
-        {{ entry.weight }} {{ entry.unit }} x {{ entry.reps }} 
+        {{ getExerciseName(entry.exerciseId) }}: {{ entry.weight }} {{ entry.unit }} x {{ entry.reps }} 
         <span class="text-muted ms-2">→ {{ entry.rm1.toFixed(1) }} {{ entry.unit }}</span>
       </div>
       <div class="small text-muted">
