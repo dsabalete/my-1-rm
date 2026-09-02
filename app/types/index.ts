@@ -25,6 +25,11 @@ export interface Formula {
   formula: string
 }
 
+export interface ExerciseProfile {
+  id: string
+  name: string
+}
+
 export interface HistoryEntry {
   id: string
   weight: number
@@ -32,6 +37,7 @@ export interface HistoryEntry {
   unit: WeightUnit
   rm1: number
   formula: FormulaType
+  exerciseId: string
   date: string
 }
 

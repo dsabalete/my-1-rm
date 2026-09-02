@@ -2,6 +2,7 @@
 import { DEFAULT_SETTINGS, getAllFormulas } from '~/constants/1rm'
 import type { FormulaType } from '~/types'
 import HistoryList from './HistoryList.vue'
+import { COMMON_EXERCISES } from '~/stores/calculator'
 
 const store = useCalculatorStore()
 const { saveSettings: saveToLocalStorage, loadSettings } = useLocalStorage()
@@ -78,6 +79,14 @@ onMounted(() => {
   <div class="calculator">
     <form class="row">
       <div class="form-group col-sm">
+        <label for="exercise">Exercise</label>
+        <select id="exercise" class="form-control" v-model="store.exerciseId" @change="store.updateExercise(store.exerciseId)">
+          <option v-for="ex in COMMON_EXERCISES" :key="ex.id" :value="ex.id">
+            {{ ex.name }}
+          </option>
+        </select>
+      </div>
+      <div class="form-group col-sm">
         <label for="weight">Weight ({{ unit }})</label>
         <input type="number" id="weight" class="form-control" v-model="weight" :placeholder="`Weight in ${unit}`">
       </div>
@@ -126,3 +135,4 @@ onMounted(() => {
   }
 }
 </style>
+

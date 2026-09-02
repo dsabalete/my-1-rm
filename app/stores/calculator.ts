@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { calculate1RM } from '~/composables/use1RM'
-import type { WeightUnit, FormulaType, HistoryEntry, WeightHistory } from '~/types'
+import type { WeightUnit, FormulaType, HistoryEntry, WeightHistory, ExerciseProfile } from '~/types'
 import { DEFAULT_FORMULA } from '~/constants/1rm'
 import { useStorage } from '@vueuse/core'
 
@@ -8,15 +8,31 @@ export interface CalculatorState {
   rm1: number
   unit: WeightUnit
   formula: FormulaType
+  exerciseId: string
   history: WeightHistory
 }
+
+export const COMMON_EXERCISES: ExerciseProfile[] = [
+  { id: 'bench-press', name: 'Bench Press' },
+  { id: 'bulgarian-squat', name: 'Bulgarian Split Squat' },
+  { id: 'deadlift', name: 'Deadlift' },
+  { id: 'dumbbell-incline-press', name: 'Dumbbell Incline Press' },
+  { id: 'dumbbell-stiff-leg-deadlift', name: 'Dumbbell Stiff Leg Deadlift' },
+  { id: 'leg-press', name: 'Leg Press' },
+  { id: 'overhead-press', name: 'Overhead Press' },
+  { id: 'seated-row', name: 'Seated Row' },
+  { id: 'squat', name: 'Squat' },
+  { id: 'y-pulldown', name: 'Y Pulldown' },
+  { id: 'custom', name: 'Custom / Other' },
+]
 
 export const useCalculatorStore = defineStore('calculator', {
   state: (): CalculatorState => ({
     rm1: 0,
     unit: 'kg',
     formula: DEFAULT_FORMULA,
-    history: useStorage<WeightHistory>('weight-history', []),
+    exerciseId: useStorage('calculator-exercise-id', 'bench-press').value,
+    history: useStorage<WeightHistory>('weight-history', []).value,
   }),
 
   actions: {
@@ -47,6 +63,7 @@ export const useCalculatorStore = defineStore('calculator', {
         unit,
         rm1: this.rm1,
         formula: this.formula,
+        exerciseId: this.exerciseId,
         date: new Date().toISOString(),
       }
 
@@ -78,16 +95,33 @@ export const useCalculatorStore = defineStore('calculator', {
     },
 
     /**
+     * Update the selected exercise
+     * @param id - The exercise profile ID
+     */
+    updateExercise(id: string): void {
+      this.exerciseId = id
+    },
+
+    /**
      * Reset the calculator state
      */
     reset(): void {
       this.rm1 = 0
       this.unit = 'kg'
       this.formula = DEFAULT_FORMULA
+      this.exerciseId = 'bench-press'
     },
   },
 
   getters: {
+    /**
+     * Get the name of the currently selected exercise
+     */
+    selectedExerciseName: (state): string => {
+      const exercise = COMMON_EXERCISES.find(e => e.id === state.exerciseId)
+      return exercise ? exercise.name : 'Custom'
+    },
+
     /**
      * Check if a valid 1RM has been calculated
      */

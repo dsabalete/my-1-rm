@@ -47,7 +47,7 @@ const calculateRepWeight = (percentage: number): number => {
 
 <template>
   <div v-if="store.hasValidRM" class="result">
-    <h2>1RM: {{ formatWeight(store.rm1) }}</h2>
+    <h2>{{ store.selectedExerciseName }} 1RM: {{ formatWeight(store.rm1) }}</h2>
     <div v-for="range in repRanges" :key="range.reps" class="rep-result">
       <h4>{{ range.reps }}RM: {{ formatWeight(calculateRepWeight(range.percentage)) }}</h4>
     </div>
