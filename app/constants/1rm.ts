@@ -66,6 +66,11 @@ export const REP_PERCENTAGES: Record<number, number> = {
   8: 0.8,    // 80% of 1RM
   9: 0.77,   // 77% of 1RM
   10: 0.75,  // 75% of 1RM
+  11: 0.72,   // 72% of 1RM
+  12: 0.70,   // 70% of 1RM
+  13: 0.68,   // 68% of 1RM
+  14: 0.65,   // 65% of 1RM
+  15: 0.63,   // 63% of 1RM
 }
 
 /**
