@@ -12,6 +12,7 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
+    "test": "vitest run",
     "postinstall": "nuxt prepare",
     "release": "semantic-release",
     "docker:build": "docker build -t dsabalete/my-1-rm .",
@@ -31,6 +32,9 @@
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/github": "^11.0.1",
-    "semantic-release": "^24.2.0"
+    "@vitejs/plugin-vue": "^6.0.8",
+    "@vue/test-utils": "^2.5.0",
+    "semantic-release": "^24.2.0",
+    "vitest": "^4.1.11"
   }
 }
