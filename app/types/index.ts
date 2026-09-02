@@ -25,3 +25,15 @@ export interface Formula {
   formula: string
 }
 
+export interface HistoryEntry {
+  id: string
+  weight: number
+  reps: number
+  unit: WeightUnit
+  rm1: number
+  formula: FormulaType
+  date: string
+}
+
+export type WeightHistory = HistoryEntry[]
+

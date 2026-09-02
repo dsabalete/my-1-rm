@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { DEFAULT_SETTINGS, getAllFormulas } from '~/constants/1rm'
 import type { FormulaType } from '~/types'
+import HistoryList from './HistoryList.vue'
 
 const store = useCalculatorStore()
 const { saveSettings: saveToLocalStorage, loadSettings } = useLocalStorage()
@@ -48,6 +49,10 @@ const saveSettings = (): void => {
 
   // Track settings save event
   analytics.trackSettingsSave(weight.value, reps.value)
+}
+
+const saveToHistory = (): void => {
+  store.saveToHistory(weight.value, reps.value, unit.value)
 }
 
 // Watch for changes and recalculate
@@ -99,7 +104,11 @@ onMounted(() => {
         {{formulas.find((f: { id: FormulaType }) => f.id === formula)?.description}}
       </small>
     </div>
-    <button class="btn btn-primary" @click.prevent="saveSettings">Save default settings</button>
+    <div class="d-flex gap-2">
+      <button class="btn btn-primary" @click.prevent="saveSettings">Save default settings</button>
+      <button class="btn btn-success" @click.prevent="saveToHistory" :disabled="!store.hasValidRM">Save to history</button>
+    </div>
+    <HistoryList />
   </div>
 </template>
 

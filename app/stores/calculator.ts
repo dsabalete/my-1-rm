@@ -1,12 +1,14 @@
 import { defineStore } from 'pinia'
 import { calculate1RM } from '~/composables/use1RM'
-import type { WeightUnit, FormulaType } from '~/types'
+import type { WeightUnit, FormulaType, HistoryEntry, WeightHistory } from '~/types'
 import { DEFAULT_FORMULA } from '~/constants/1rm'
+import { useStorage } from '@vueuse/core'
 
 export interface CalculatorState {
   rm1: number
   unit: WeightUnit
   formula: FormulaType
+  history: WeightHistory
 }
 
 export const useCalculatorStore = defineStore('calculator', {
@@ -14,6 +16,7 @@ export const useCalculatorStore = defineStore('calculator', {
     rm1: 0,
     unit: 'kg',
     formula: DEFAULT_FORMULA,
+    history: useStorage<WeightHistory>('weight-history', []),
   }),
 
   actions: {
@@ -26,6 +29,36 @@ export const useCalculatorStore = defineStore('calculator', {
     update1RM(weight: number, reps: number, formula?: FormulaType): void {
       const formulaToUse = formula || this.formula
       this.rm1 = calculate1RM(weight, reps, formulaToUse)
+    },
+
+    /**
+     * Save current calculation to history
+     * @param weight - The weight lifted
+     * @param reps - The number of repetitions performed
+     * @param unit - The weight unit used
+     */
+    saveToHistory(weight: number, reps: number, unit: WeightUnit): void {
+      if (this.rm1 <= 0) return
+
+      const entry: HistoryEntry = {
+        id: crypto.randomUUID(),
+        weight,
+        reps,
+        unit,
+        rm1: this.rm1,
+        formula: this.formula,
+        date: new Date().toISOString(),
+      }
+
+      this.history.unshift(entry)
+    },
+
+    /**
+     * Remove a record from history
+     * @param id - The ID of the entry to remove
+     */
+    removeFromHistory(id: string): void {
+      this.history = this.history.filter(entry => entry.id !== id)
     },
 
     /**
