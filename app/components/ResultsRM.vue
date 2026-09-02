@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { REP_PERCENTAGES } from '~/constants/1rm'
+import { REP_PERCENTAGES, WEIGHT_CONVERSION_FACTOR } from '~/constants/1rm'
 import { useTransition } from '@vueuse/core'
 
 const store = useCalculatorStore()
@@ -16,7 +16,7 @@ const animatedRM1 = useTransition(computed(() => store.rm1), {
  * Convert kilograms to pounds
  */
 const kgToLb = (kg: number): number => {
-  return kg * 2.20462
+  return kg * WEIGHT_CONVERSION_FACTOR
 }
 
 /**

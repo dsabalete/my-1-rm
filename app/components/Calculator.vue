@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { DEFAULT_SETTINGS, getAllFormulas } from '~/constants/1rm'
+import { DEFAULT_SETTINGS, getAllFormulas, WEIGHT_CONVERSION_FACTOR } from '~/constants/1rm'
 import type { FormulaType } from '~/types'
 import HistoryList from './HistoryList.vue'
 import { COMMON_EXERCISES } from '~/stores/calculator'
@@ -31,7 +31,7 @@ const formulas = getAllFormulas()
  * Convert pounds to kilograms
  */
 const lbsToKg = (lbs: number): number => {
-  return lbs / 2.20462
+  return lbs / WEIGHT_CONVERSION_FACTOR
 }
 
 /**

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { WEIGHT_CONVERSION_FACTOR } from '~/constants/1rm'
+
 useHead({
   title: 'Weight Converter - Kilograms to Pounds & Vice Versa | My1RM',
   meta: [
@@ -14,7 +16,7 @@ const lbs = ref<number | null>(null)
 
 const convertKgToLbs = () => {
   if (kg.value !== null) {
-    lbs.value = kg.value * 2.20462
+    lbs.value = kg.value * WEIGHT_CONVERSION_FACTOR
   } else {
     lbs.value = null
   }
@@ -22,7 +24,7 @@ const convertKgToLbs = () => {
 
 const convertLbsToKg = () => {
   if (lbs.value !== null) {
-    kg.value = lbs.value / 2.20462
+    kg.value = lbs.value / WEIGHT_CONVERSION_FACTOR
   } else {
     kg.value = null
   }
@@ -66,8 +68,8 @@ const convertLbsToKg = () => {
       </div>
       
       <div class="converter-footer">
-        <p>1 kg = 2.20462 lbs</p>
-        <p>1 lb = 0.45359 kg</p>
+        <p>1 kg = {{ WEIGHT_CONVERSION_FACTOR }} lbs</p>
+        <p>1 lb = {{ (1 / WEIGHT_CONVERSION_FACTOR).toFixed(5) }} kg</p>
       </div>
     </div>
   </div>

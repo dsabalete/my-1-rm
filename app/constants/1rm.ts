@@ -4,6 +4,8 @@
 
 import type { Formula, FormulaType } from '~/types'
 
+export const WEIGHT_CONVERSION_FACTOR = 2.20462 // kg to lbs
+
 /**
  * Available 1RM calculation formulas
  */
