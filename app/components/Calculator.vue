@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { DEFAULT_SETTINGS, getAllFormulas, WEIGHT_CONVERSION_FACTOR } from '~/constants/1rm'
-import type { FormulaType } from '~/types'
+import type { FormulaType, WeightUnit } from '~/types'
 import HistoryList from './HistoryList.vue'
 import { COMMON_EXERCISES } from '~/stores/calculator'
 
@@ -10,7 +10,7 @@ const analytics = useAnalytics()
 
 const weight = ref<number>(DEFAULT_SETTINGS.weight)
 const reps = ref<number>(DEFAULT_SETTINGS.reps)
-const unit = ref<'kg' | 'lbs'>(DEFAULT_SETTINGS.unit)
+const unit = ref<WeightUnit>(DEFAULT_SETTINGS.unit)
 const formula = ref<FormulaType>(DEFAULT_SETTINGS.formula)
 
 const weightError = computed(() => {
