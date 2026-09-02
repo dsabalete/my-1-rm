@@ -1,3 +1,11 @@
+# [1.15.0](https://github.com/dsabalete/my-1-rm/compare/v1.14.0...v1.15.0) (2026-09-02)
+
+
+### Features
+
+* Add weight converter page and integrate exercise selection in calculator ([edb51aa](https://github.com/dsabalete/my-1-rm/commit/edb51aae6c4922b0a657e6fdaa19e3a248b81153))
+* Implement history tracking for weight calculations with save and remove functionality ([d32e9ad](https://github.com/dsabalete/my-1-rm/commit/d32e9adb533f8f626f0782bee2ef8bf523de232b))
+
 # [1.14.0](https://github.com/dsabalete/my-1-rm/compare/v1.13.0...v1.14.0) (2026-08-07)
 
 
