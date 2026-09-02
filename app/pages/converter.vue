@@ -1,14 +1,10 @@
 <script setup lang="ts">
 import { WEIGHT_CONVERSION_FACTOR } from '~/constants/1rm'
 
-useHead({
-  title: 'Weight Converter - Kilograms to Pounds & Vice Versa | My1RM',
-  meta: [
-    {
-      name: 'description',
-      content: 'Quick and easy weight converter between kilograms (kg) and pounds (lbs). Perfect for athletes and weightlifters.',
-    },
-  ],
+usePageSeo({
+  title: 'Weight Converter - Kilograms to Pounds & Vice Versa',
+  description: 'Quick and easy weight converter between kilograms (kg) and pounds (lbs). Perfect for athletes and weightlifters.',
+  path: '/converter',
 })
 
 const kg = ref<number | null>(null)

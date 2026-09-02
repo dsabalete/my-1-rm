@@ -1,62 +1,17 @@
 <script setup lang="ts">
-// About page explaining the 1RM calculator and available formulas
 import { getAllFormulas } from '~/constants/1rm'
 
 const config = useRuntimeConfig()
 const siteUrl = config.public.siteUrl
 const formulas = getAllFormulas()
 
-useHead({
-  title: 'About 1RM Calculator - Multiple Formulas Explained | My1RM',
-  meta: [
-    {
-      name: 'description',
-      content: 'Learn about the 1RM (One Repetition Maximum) calculator with multiple formulas: Brzycki, Epley, Lombardi, Mayhew, O\'Conner, and Wathan. Understand how to safely calculate your maximum strength without risking injury.',
-    },
-    {
-      name: 'keywords',
-      content: '1RM calculator, Brzycki formula, Epley formula, Lombardi formula, one rep max, strength training, maximum weight, rep max calculation, 1RM formulas',
-    },
-    // Open Graph
-    {
-      property: 'og:title',
-      content: 'About 1RM Calculator - Multiple Formulas Explained',
-    },
-    {
-      property: 'og:description',
-      content: 'Learn about the 1RM calculator with multiple formulas. Understand how to safely calculate your maximum strength.',
-    },
-    {
-      property: 'og:type',
-      content: 'website',
-    },
-    {
-      property: 'og:url',
-      content: `${siteUrl}/about`,
-    },
-    // Twitter Card
-    {
-      name: 'twitter:card',
-      content: 'summary',
-    },
-    {
-      name: 'twitter:title',
-      content: 'About 1RM Calculator - Multiple Formulas Explained',
-    },
-    {
-      name: 'twitter:description',
-      content: 'Learn about the 1RM calculator with multiple formulas. Understand how to safely calculate your maximum strength.',
-    },
-  ],
-  link: [
-    {
-      rel: 'canonical',
-      href: `${siteUrl}/about`,
-    },
-  ],
+usePageSeo({
+  title: 'About 1RM Calculator - Multiple Formulas Explained',
+  description: 'Learn about the 1RM (One Repetition Maximum) calculator with multiple formulas: Brzycki, Epley, Lombardi, Mayhew, O\'Conner, and Wathan. Understand how to safely calculate your maximum strength without risking injury.',
+  path: '/about',
+  keywords: '1RM calculator, Brzycki formula, Epley formula, Lombardi formula, one rep max, strength training, maximum weight, rep max calculation, 1RM formulas',
 })
 
-// Structured data (JSON-LD)
 useHead({
   script: [
     {

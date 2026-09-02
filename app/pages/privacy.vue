@@ -1,51 +1,16 @@
 <script setup lang="ts">
-// Privacy Policy page
 const lastUpdated = '2025-11-28'
 const config = useRuntimeConfig()
 const siteUrl = config.public.siteUrl
 
-useHead({
-  title: 'Privacy Policy - 1RM Calculator | My1RM',
-  meta: [
-    {
-      name: 'description',
-      content: 'Privacy Policy for My1RM Calculator. Learn how we collect, use, and protect your information when using our 1RM calculator.',
-    },
-    {
-      name: 'keywords',
-      content: 'privacy policy, data protection, 1RM calculator privacy, user data',
-    },
-    {
-      name: 'robots',
-      content: 'noindex, follow',
-    },
-    // Open Graph
-    {
-      property: 'og:title',
-      content: 'Privacy Policy - 1RM Calculator',
-    },
-    {
-      property: 'og:description',
-      content: 'Privacy Policy for My1RM Calculator. Learn how we collect, use, and protect your information.',
-    },
-    {
-      property: 'og:type',
-      content: 'website',
-    },
-    {
-      property: 'og:url',
-      content: `${siteUrl}/privacy`,
-    },
-  ],
-  link: [
-    {
-      rel: 'canonical',
-      href: `${siteUrl}/privacy`,
-    },
-  ],
+usePageSeo({
+  title: 'Privacy Policy - 1RM Calculator',
+  description: 'Privacy Policy for My1RM Calculator. Learn how we collect, use, and protect your information when using our 1RM calculator.',
+  path: '/privacy',
+  keywords: 'privacy policy, data protection, 1RM calculator privacy, user data',
+  noindex: true,
 })
 
-// Structured data (JSON-LD)
 useHead({
   script: [
     {

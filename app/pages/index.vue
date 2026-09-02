@@ -1,63 +1,14 @@
 <script setup lang="ts">
-// Home page with calculator and results components
 const config = useRuntimeConfig()
 const siteUrl = config.public.siteUrl
 
-useHead({
-  title: '1RM Calculator - Calculate Your One Repetition Maximum | My1RM',
-  meta: [
-    {
-      name: 'description',
-      content: 'Free 1RM calculator with multiple formulas (Brzycki, Epley, Lombardi, Mayhew, O\'Conner, Wathan). Calculate your one repetition maximum (1RM) for any exercise safely. Supports kg and lbs. No registration required.',
-    },
-    {
-      name: 'keywords',
-      content: '1RM calculator, one rep max calculator, Brzycki formula, Epley formula, Lombardi formula, max weight calculator, strength training calculator, 1RM test, weightlifting calculator, multiple 1RM formulas',
-    },
-    // Open Graph
-    {
-      property: 'og:title',
-      content: '1RM Calculator - Calculate Your One Repetition Maximum',
-    },
-    {
-      property: 'og:description',
-      content: 'Free 1RM calculator with multiple formulas. Calculate your one repetition maximum for any exercise safely.',
-    },
-    {
-      property: 'og:type',
-      content: 'website',
-    },
-    {
-      property: 'og:url',
-      content: siteUrl,
-    },
-    {
-      property: 'og:site_name',
-      content: 'My1RM Calculator',
-    },
-    // Twitter Card
-    {
-      name: 'twitter:card',
-      content: 'summary',
-    },
-    {
-      name: 'twitter:title',
-      content: '1RM Calculator - Calculate Your One Repetition Maximum',
-    },
-    {
-      name: 'twitter:description',
-      content: 'Free 1RM calculator with multiple formulas. Calculate your one repetition maximum for any exercise safely.',
-    },
-  ],
-  link: [
-    {
-      rel: 'canonical',
-      href: siteUrl,
-    },
-  ],
+usePageSeo({
+  title: '1RM Calculator - Calculate Your One Repetition Maximum',
+  description: 'Free 1RM calculator with multiple formulas (Brzycki, Epley, Lombardi, Mayhew, O\'Conner, Wathan). Calculate your one repetition maximum (1RM) for any exercise safely. Supports kg and lbs. No registration required.',
+  path: '/',
+  keywords: '1RM calculator, one rep max calculator, Brzycki formula, Epley formula, Lombardi formula, max weight calculator, strength training calculator, 1RM test, weightlifting calculator, multiple 1RM formulas',
 })
 
-// Structured data (JSON-LD)
 useHead({
   script: [
     {

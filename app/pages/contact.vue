@@ -2,68 +2,13 @@
 const config = useRuntimeConfig()
 const siteUrl = config.public.siteUrl
 
-// Form fields
-const name = ref('')
-const email = ref('')
-const subject = ref('')
-const message = ref('')
-
-// Form state
-const isSubmitting = ref(false)
-const submitSuccess = ref(false)
-const submitError = ref<string | null>(null)
-
-useHead({
-  title: 'Contact Us - 1RM Calculator Support | My1RM',
-  meta: [
-    {
-      name: 'description',
-      content: 'Contact the My1RM Calculator team. Have questions, suggestions, or feedback? We\'d love to hear from you!',
-    },
-    {
-      name: 'keywords',
-      content: 'contact 1RM calculator, support, feedback, questions, help',
-    },
-    // Open Graph
-    {
-      property: 'og:title',
-      content: 'Contact Us - 1RM Calculator Support',
-    },
-    {
-      property: 'og:description',
-      content: 'Contact the My1RM Calculator team. Have questions, suggestions, or feedback? We\'d love to hear from you!',
-    },
-    {
-      property: 'og:type',
-      content: 'website',
-    },
-    {
-      property: 'og:url',
-      content: `${siteUrl}/contact`,
-    },
-    // Twitter Card
-    {
-      name: 'twitter:card',
-      content: 'summary',
-    },
-    {
-      name: 'twitter:title',
-      content: 'Contact Us - 1RM Calculator Support',
-    },
-    {
-      name: 'twitter:description',
-      content: 'Contact the My1RM Calculator team. Have questions, suggestions, or feedback?',
-    },
-  ],
-  link: [
-    {
-      rel: 'canonical',
-      href: `${siteUrl}/contact`,
-    },
-  ],
+usePageSeo({
+  title: 'Contact Us - 1RM Calculator Support',
+  description: 'Contact the My1RM Calculator team. Have questions, suggestions, or feedback? We\'d love to hear from you!',
+  path: '/contact',
+  keywords: 'contact 1RM calculator, support, feedback, questions, help',
 })
 
-// Structured data (JSON-LD)
 useHead({
   script: [
     {
@@ -83,6 +28,17 @@ useHead({
     },
   ],
 })
+
+// Form fields
+const name = ref('')
+const email = ref('')
+const subject = ref('')
+const message = ref('')
+
+// Form state
+const isSubmitting = ref(false)
+const submitSuccess = ref(false)
+const submitError = ref<string | null>(null)
 
 // Function to submit contact form
 const handleSubmit = async (event: Event) => {
